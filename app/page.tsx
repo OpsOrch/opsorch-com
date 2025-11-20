@@ -41,12 +41,12 @@ const pillars = [
   },
   {
     title: "Decide",
-    body: "Codify playbooks that watch signals and drive consistent on-call decisions with shared context and automation hooks.",
+    body: "Sort signal from noise, understand impact, and determine the right course of action before anything escalates.",
     metric: "1 source of truth",
   },
   {
     title: "Automate",
-    body: "Trigger service owners, open tickets, and launch remediation workflows through adapters and MCP integrations.",
+    body: "Trigger service owners, create tickets, and kick off remediation steps through adapter integrations and MCP tools.",
     metric: "Minutes to action",
   },
 ];
@@ -67,7 +67,7 @@ export default function Home() {
               <h1 className="text-4xl font-semibold text-white md:text-5xl">Run resilient operations with OpsOrch</h1>
               <p className="max-w-2xl text-lg text-slate-200">
                 OpsOrch stitches together telemetry, incident response, and automation so teams can see, decide, and act with
-                confidence-all in the familiar deep teal operator console shared across OpsOrch surfaces.
+                confidence. It brings every signal and every action point into one calm, cohesive surface where operators can move from detection to resolution without breaking flow.
               </p>
               <div className="flex flex-wrap gap-4">
                 <DemoCTA videoSrc={DEMO_URL} />

@@ -1,6 +1,7 @@
 {
   "name": "opsorch-com",
   "version": "0.1.0",
+  "description": "OpsOrch stitches together telemetry, incident response, and automation so teams can see, decide, and act with confidence.",
   "private": true,
   "scripts": {
     "dev": "next dev",
