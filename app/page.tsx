@@ -23,8 +23,13 @@ const repositories = [
   },
   {
     name: "opsorch-pagerduty-adapter",
-    description: "PagerDuty-flavoured incident adapter scaffold ready to swap stub logic for real API calls or plugin binaries.",
+    description: "Production-ready PagerDuty incident adapter that integrates with PagerDuty REST API v2 for creating, querying, and managing incidents.",
     focus: "PagerDuty",
+  },
+  {
+    name: "opsorch-jira-adapter",
+    description: "Production-ready Jira ticket adapter that integrates with Atlassian Jira REST API v3 for creating, querying, and updating issues.",
+    focus: "Jira",
   },
   {
     name: "opsorch-mcp",
@@ -84,64 +89,64 @@ export default function Home() {
             </div>
           </header>
 
-        <section className="opsorch-grid lg:grid-cols-3">
-          {pillars.map((pillar) => (
-            <div key={pillar.title} className="opsorch-card border-[#1f3c43] p-6">
-              <p className="text-sm font-semibold text-[#72e0e0]">{pillar.metric}</p>
-              <h2 className="mt-3 text-2xl font-semibold text-white">{pillar.title}</h2>
-              <p className="mt-3 text-sm text-slate-300">{pillar.body}</p>
-            </div>
-          ))}
-        </section>
+          <section className="opsorch-grid lg:grid-cols-3">
+            {pillars.map((pillar) => (
+              <div key={pillar.title} className="opsorch-card border-[#1f3c43] p-6">
+                <p className="text-sm font-semibold text-[#72e0e0]">{pillar.metric}</p>
+                <h2 className="mt-3 text-2xl font-semibold text-white">{pillar.title}</h2>
+                <p className="mt-3 text-sm text-slate-300">{pillar.body}</p>
+              </div>
+            ))}
+          </section>
 
-        <section className="opsorch-card opsorch-card--light p-8">
-          <div className="flex flex-col gap-3 border-b border-black/10 pb-6 text-slate-800 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="opsorch-tag text-[#3d8f92]">GitHub</p>
-              <h2 className="text-3xl font-semibold text-slate-900">Explore the OpsOrch repositories</h2>
-              <p className="text-sm text-slate-600">Everything is open on GitHub-adapt the stack to your own operations.</p>
-            </div>
-            <Link
-              href={GITHUB_ORG_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl border border-[#1f3c43]/20 bg-white/70 px-4 py-2 text-sm font-semibold text-[#0f1c20] shadow-sm transition hover:bg-white"
-            >
-              github.com/OpsOrch
-            </Link>
-          </div>
-
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {repositories.map((repo) => (
+          <section className="opsorch-card opsorch-card--light p-8">
+            <div className="flex flex-col gap-3 border-b border-black/10 pb-6 text-slate-800 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="opsorch-tag text-[#3d8f92]">GitHub</p>
+                <h2 className="text-3xl font-semibold text-slate-900">Explore the OpsOrch repositories</h2>
+                <p className="text-sm text-slate-600">Everything is open on GitHub-adapt the stack to your own operations.</p>
+              </div>
               <Link
-                key={repo.name}
-                href={`${GITHUB_ORG_URL}/${repo.name}`}
+                href={GITHUB_ORG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col gap-3 rounded-2xl border border-black/10 bg-white/60 px-5 py-4 text-left text-slate-900 shadow-sm transition hover:-translate-y-1 hover:border-[#3d8f92] hover:bg-white"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#1f3c43]/20 bg-white/70 px-4 py-2 text-sm font-semibold text-[#0f1c20] shadow-sm transition hover:bg-white"
               >
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold text-slate-900">{repo.name}</h3>
-                  <span className="rounded-full border border-[#3d8f92] bg-[#e2f8f8] px-3 py-1 text-xs font-semibold text-[#0f1c20]">
-                    {repo.focus}
-                  </span>
-                </div>
-                <p className="text-sm text-slate-600">{repo.description}</p>
-                <span className="opsorch-link text-sm text-[#0f3b42]">Open on GitHub ↗</span>
+                github.com/OpsOrch
               </Link>
-            ))}
-          </div>
-        </section>
+            </div>
 
-        <section className="rounded-3xl border border-white/10 bg-[#122328]/70 px-6 py-5 text-center text-sm text-slate-200">
-          <p>
-            OpsOrch Console and OpsOrch Copilot are still cooking in our private repos while we finish the deep polish-stay tuned for when we serve them up.
-          </p>
-        </section>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {repositories.map((repo) => (
+                <Link
+                  key={repo.name}
+                  href={`${GITHUB_ORG_URL}/${repo.name}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col gap-3 rounded-2xl border border-black/10 bg-white/60 px-5 py-4 text-left text-slate-900 shadow-sm transition hover:-translate-y-1 hover:border-[#3d8f92] hover:bg-white"
+                >
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-semibold text-slate-900">{repo.name}</h3>
+                    <span className="rounded-full border border-[#3d8f92] bg-[#e2f8f8] px-3 py-1 text-xs font-semibold text-[#0f1c20]">
+                      {repo.focus}
+                    </span>
+                  </div>
+                  <p className="text-sm text-slate-600">{repo.description}</p>
+                  <span className="opsorch-link text-sm text-[#0f3b42]">Open on GitHub ↗</span>
+                </Link>
+              ))}
+            </div>
+          </section>
 
-        <footer className="text-center text-xs text-slate-400">
-          © {currentYear} OpsOrch. All rights reserved.
-        </footer>
+          <section className="rounded-3xl border border-white/10 bg-[#122328]/70 px-6 py-5 text-center text-sm text-slate-200">
+            <p>
+              OpsOrch Console and OpsOrch Copilot are still cooking in our private repos while we finish the deep polish-stay tuned for when we serve them up.
+            </p>
+          </section>
+
+          <footer className="text-center text-xs text-slate-400">
+            © {currentYear} OpsOrch. All rights reserved.
+          </footer>
         </div>
       </div>
     </>
