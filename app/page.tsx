@@ -23,7 +23,7 @@ const repositories = [
   },
   {
     name: "opsorch-pagerduty-adapter",
-    description: "Production-ready PagerDuty incident adapter that integrates with PagerDuty REST API v2 for creating, querying, and managing incidents.",
+    description: "Production-ready PagerDuty adapter that integrates with PagerDuty REST API v2 for creating, querying, and managing incidents, and discovering services.",
     focus: "PagerDuty",
   },
   {
@@ -140,7 +140,7 @@ export default function Home() {
 
           <section className="rounded-3xl border border-white/10 bg-[#122328]/70 px-6 py-5 text-center text-sm text-slate-200">
             <p>
-              OpsOrch Console and OpsOrch Copilot are still cooking in our private repos while we finish the deep polish-stay tuned for when we serve them up.
+              OpsOrch Console and OpsOrch Copilot are still cooking in our private repos—stay tuned.
             </p>
           </section>
 
