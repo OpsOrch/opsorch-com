@@ -32,6 +32,21 @@ const repositories = [
     focus: "Jira",
   },
   {
+    name: "opsorch-prometheus-adapter",
+    description: "Metric adapter that integrates with Prometheus for querying metrics using PromQL and discovering available metrics.",
+    focus: "Prometheus",
+  },
+  {
+    name: "opsorch-slack-adapter",
+    description: "Messaging adapter that sends rich messages to Slack channels using Block Kit with Markdown support.",
+    focus: "Slack",
+  },
+  {
+    name: "opsorch-elastic-adapter",
+    description: "Log adapter that integrates with Elasticsearch for querying logs with full-text search and structured filtering.",
+    focus: "Elastic",
+  },
+  {
     name: "opsorch-mcp",
     description: "Model Context Protocol server that exposes OpsOrch Core HTTP APIs as MCP tools for agents and IDE copilots.",
     focus: "MCP",

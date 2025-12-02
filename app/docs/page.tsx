@@ -209,6 +209,48 @@ export default function DocsPage() {
                         </Link>
 
                         <Link
+                            href="https://github.com/OpsOrch/opsorch-slack-adapter"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-xl border border-[#1f3c43] bg-[#0d1416]/50 p-5 transition hover:-translate-y-1 hover:border-[#55cfd0]"
+                        >
+                            <div className="flex items-start justify-between">
+                                <div>
+                                    <h3 className="text-lg font-semibold text-white">Slack Adapter</h3>
+                                    <p className="mt-1 text-xs text-[#72e0e0]">Messaging</p>
+                                </div>
+                                <span className="text-slate-500">↗</span>
+                            </div>
+                            <ul className="mt-3 space-y-1 text-sm text-slate-400">
+                                <li>• Rich message composition</li>
+                                <li>• Block Kit support</li>
+                                <li>• Markdown rendering</li>
+                                <li>• Channel & user targeting</li>
+                            </ul>
+                        </Link>
+
+                        <Link
+                            href="https://github.com/OpsOrch/opsorch-elastic-adapter"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-xl border border-[#1f3c43] bg-[#0d1416]/50 p-5 transition hover:-translate-y-1 hover:border-[#55cfd0]"
+                        >
+                            <div className="flex items-start justify-between">
+                                <div>
+                                    <h3 className="text-lg font-semibold text-white">Elastic Adapter</h3>
+                                    <p className="mt-1 text-xs text-[#72e0e0]">Logs</p>
+                                </div>
+                                <span className="text-slate-500">↗</span>
+                            </div>
+                            <ul className="mt-3 space-y-1 text-sm text-slate-400">
+                                <li>• Full-text search</li>
+                                <li>• Structured filtering</li>
+                                <li>• Severity mapping</li>
+                                <li>• Time-range queries</li>
+                            </ul>
+                        </Link>
+
+                        <Link
                             href="https://github.com/OpsOrch/opsorch-mock-adapters"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -318,7 +360,55 @@ export default function DocsPage() {
                     </div>
                 </section>
 
-                {/* Building Adapters */}
+                {/* Deployment */}
+                <section className="opsorch-card opsorch-card--light p-8">
+                    <h2 className="text-3xl font-semibold text-slate-900">Deployment</h2>
+                    <p className="mt-4 text-slate-700">
+                        OpsOrch adapters publish pre-built binaries that you can mix and match to create custom Docker images.
+                    </p>
+
+                    <div className="mt-6 space-y-4">
+                        <div>
+                            <h4 className="font-semibold text-slate-900">Custom Docker Image</h4>
+                            <p className="mt-2 text-sm text-slate-600">
+                                Create a `Dockerfile` that starts from `opsorch-core` and downloads the adapter binaries you need.
+                                This example combines Jira, PagerDuty, and Slack adapters:
+                            </p>
+                            <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-4 text-xs text-slate-300">
+                                <code>{`FROM ghcr.io/opsorch/opsorch-core:latest
+WORKDIR /opt/opsorch
+
+# Download adapter binaries (linux-amd64)
+ADD https://github.com/opsorch/opsorch-jira-adapter/releases/download/v0.2.1/ticketplugin-linux-amd64 ./plugins/ticketplugin
+ADD https://github.com/opsorch/opsorch-pagerduty-adapter/releases/download/v0.1.5/incidentplugin-linux-amd64 ./plugins/incidentplugin
+ADD https://github.com/opsorch/opsorch-slack-adapter/releases/download/v0.3.0/messagingplugin-linux-amd64 ./plugins/messagingplugin
+
+# Make binaries executable
+RUN chmod +x ./plugins/*
+
+# Configure plugins via environment variables
+ENV OPSORCH_TICKET_PLUGIN=/opt/opsorch/plugins/ticketplugin \\
+    OPSORCH_INCIDENT_PLUGIN=/opt/opsorch/plugins/incidentplugin \\
+    OPSORCH_MESSAGING_PLUGIN=/opt/opsorch/plugins/messagingplugin`}</code>
+                            </pre>
+                        </div>
+
+                        <div>
+                            <h4 className="font-semibold text-slate-900">Running the Image</h4>
+                            <pre className="mt-2 overflow-x-auto rounded-lg bg-slate-100 p-4 text-xs">
+                                <code>{`docker build -t my-opsorch:latest .
+
+docker run --rm -p 8080:8080 \\
+  -e OPSORCH_TICKET_CONFIG='{"apiToken":"...","projectKey":"PROJ"}' \\
+  -e OPSORCH_INCIDENT_CONFIG='{"apiToken":"...","serviceID":"..."}' \\
+  -e OPSORCH_MESSAGING_CONFIG='{"token":"xoxb-..."}' \\
+  my-opsorch:latest`}</code>
+                            </pre>
+                        </div>
+                    </div>
+                </section>
+
+
                 <section className="opsorch-card border-[#2c4c52] p-8">
                     <h2 className="text-3xl font-semibold text-white">Building Custom Adapters</h2>
                     <p className="mt-4 text-slate-300">
