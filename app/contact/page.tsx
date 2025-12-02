@@ -1,133 +1,84 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
+import type { Metadata } from "next";
+import ContactForm from "./contact-form";
+
+const pageUrl = "https://opsorch.com/contact";
+
+export const metadata: Metadata = {
+    title: "Contact OpsOrch",
+    description: "Reach the OpsOrch team to discuss deployments, partnerships, or community contributions.",
+    alternates: {
+        canonical: pageUrl,
+    },
+    openGraph: {
+        url: pageUrl,
+        title: "Contact OpsOrch",
+        description: "Get in touch with OpsOrch for support, enterprise needs, or to contribute to the project.",
+    },
+};
 
 export default function ContactPage() {
-    const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-
-    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault();
-        setStatus("submitting");
-
-        const form = e.currentTarget;
-        const formData = new FormData(form);
-
-        try {
-            const response = await fetch("https://formspree.io/f/mldyzgrw", {
-                method: "POST",
-                headers: {
-                    Accept: "application/json",
-                },
-                body: formData,
-            });
-
-            if (response.ok) {
-                setStatus("success");
-                form.reset();
-                setTimeout(() => setStatus("idle"), 5000);
-            } else {
-                setStatus("error");
-                setTimeout(() => setStatus("idle"), 5000);
-            }
-        } catch (error) {
-            setStatus("error");
-            setTimeout(() => setStatus("idle"), 5000);
-        }
-    }
-
     return (
         <div className="min-h-screen px-4 py-16 sm:px-6 lg:px-10">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@graph": [
+                            {
+                                "@type": "ContactPage",
+                                name: "Contact OpsOrch",
+                                description: "Reach OpsOrch for platform demos, integrations, or support.",
+                                url: pageUrl,
+                                publisher: {
+                                    "@type": "Organization",
+                                    name: "OpsOrch",
+                                    url: "https://opsorch.com",
+                                },
+                                mainEntity: {
+                                    "@type": "ContactPoint",
+                                    contactType: "customer support",
+                                    url: pageUrl,
+                                    areaServed: "Global",
+                                    availableLanguage: ["English"],
+                                },
+                            },
+                            {
+                                "@type": "BreadcrumbList",
+                                itemListElement: [
+                                    {
+                                        "@type": "ListItem",
+                                        position: 1,
+                                        name: "Home",
+                                        item: "https://opsorch.com",
+                                    },
+                                    {
+                                        "@type": "ListItem",
+                                        position: 2,
+                                        name: "Contact",
+                                        item: pageUrl,
+                                    },
+                                ],
+                            },
+                        ],
+                    }),
+                }}
+            />
             <div className="mx-auto max-w-3xl space-y-12">
                 {/* Header */}
                 <header className="text-center">
                     <p className="opsorch-tag">Get in Touch</p>
                     <h1 className="mt-2 text-4xl font-bold text-white md:text-5xl">Contact Us</h1>
                     <p className="mt-4 text-lg text-slate-300">
-                        We'd love to hear from you
+                        We&rsquo;d love to hear from you
                     </p>
                 </header>
 
                 {/* Contact Form */}
                 <section className="opsorch-card border-[#2c4c52] p-8">
                     <h2 className="text-2xl font-semibold text-white">Send us a message</h2>
-                    <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-                        <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-slate-300">
-                                Name
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                required
-                                className="mt-1 w-full rounded-lg border border-[#2c4c52] bg-[#0d1416] px-4 py-2 text-white placeholder-slate-500 focus:border-[#55cfd0] focus:outline-none focus:ring-1 focus:ring-[#55cfd0]"
-                                placeholder="Your name"
-                            />
-                        </div>
-
-                        <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-slate-300">
-                                Email
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                required
-                                className="mt-1 w-full rounded-lg border border-[#2c4c52] bg-[#0d1416] px-4 py-2 text-white placeholder-slate-500 focus:border-[#55cfd0] focus:outline-none focus:ring-1 focus:ring-[#55cfd0]"
-                                placeholder="your@email.com"
-                            />
-                        </div>
-
-                        <div>
-                            <label htmlFor="subject" className="block text-sm font-medium text-slate-300">
-                                Subject
-                            </label>
-                            <input
-                                type="text"
-                                id="subject"
-                                name="subject"
-                                required
-                                className="mt-1 w-full rounded-lg border border-[#2c4c52] bg-[#0d1416] px-4 py-2 text-white placeholder-slate-500 focus:border-[#55cfd0] focus:outline-none focus:ring-1 focus:ring-[#55cfd0]"
-                                placeholder="How can we help?"
-                            />
-                        </div>
-
-                        <div>
-                            <label htmlFor="message" className="block text-sm font-medium text-slate-300">
-                                Message
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                required
-                                rows={6}
-                                className="mt-1 w-full rounded-lg border border-[#2c4c52] bg-[#0d1416] px-4 py-2 text-white placeholder-slate-500 focus:border-[#55cfd0] focus:outline-none focus:ring-1 focus:ring-[#55cfd0]"
-                                placeholder="Tell us more..."
-                            />
-                        </div>
-
-                        <button
-                            type="submit"
-                            disabled={status === "submitting"}
-                            className="w-full rounded-lg border border-[#55cfd0] bg-[#10333a] px-6 py-3 font-semibold text-white transition hover:bg-[#14454e] disabled:cursor-not-allowed disabled:opacity-50"
-                        >
-                            {status === "submitting" ? "Sending..." : "Send Message"}
-                        </button>
-
-                        {status === "success" && (
-                            <p className="text-center text-sm text-[#72e0e0]">
-                                Thanks for your message! We'll get back to you soon.
-                            </p>
-                        )}
-
-                        {status === "error" && (
-                            <p className="text-center text-sm text-red-400">
-                                Oops! Something went wrong. Please try again or email us directly.
-                            </p>
-                        )}
-                    </form>
+                    <ContactForm />
                 </section>
 
                 {/* GitHub */}
@@ -161,8 +112,8 @@ export default function ContactPage() {
                     <h2 className="text-2xl font-semibold text-slate-900">Join the Community</h2>
                     <p className="mt-3 text-slate-700">
                         OpsOrch is built in the open. We welcome contributions, feedback, and discussions
-                        from the community. Whether you're fixing a bug, building an adapter, or sharing
-                        your use case. We'd love to collaborate.
+                        from the community. Whether you&rsquo;re fixing a bug, building an adapter, or sharing
+                        your use case. We&rsquo;d love to collaborate.
                     </p>
                     <div className="mt-6 flex flex-wrap gap-4">
                         <Link

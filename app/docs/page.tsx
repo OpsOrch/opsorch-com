@@ -1,8 +1,55 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+const pageUrl = "https://opsorch.com/docs";
+
+export const metadata: Metadata = {
+    title: "OpsOrch Documentation",
+    description:
+        "Comprehensive documentation for OpsOrch: Quick Start, Architecture, Core Concepts, and API References.",
+    alternates: {
+        canonical: pageUrl,
+    },
+    openGraph: {
+        url: pageUrl,
+        title: "OpsOrch Documentation",
+        description:
+            "Dive into OpsOrch quick start guides, architecture overviews, and API references for adapters and automations.",
+    },
+};
 
 export default function DocsPage() {
     return (
         <div className="min-h-screen px-4 py-16 sm:px-6 lg:px-10">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "WebPage",
+                        name: "OpsOrch Documentation",
+                        description: "Comprehensive documentation for OpsOrch: Quick Start, Architecture, Core Concepts, and API References.",
+                        url: pageUrl,
+                        breadcrumb: {
+                            "@type": "BreadcrumbList",
+                            itemListElement: [
+                                {
+                                    "@type": "ListItem",
+                                    position: 1,
+                                    name: "Home",
+                                    item: "https://opsorch.com",
+                                    },
+                                    {
+                                        "@type": "ListItem",
+                                        position: 2,
+                                        name: "Documentation",
+                                        item: pageUrl,
+                                },
+                            ],
+                        },
+                    }),
+                }}
+            />
             <div className="mx-auto max-w-6xl space-y-16">
                 {/* Header */}
                 <header>

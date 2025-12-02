@@ -1,10 +1,67 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
+
+const pageUrl = "https://opsorch.com/about";
+
+export const metadata: Metadata = {
+    title: "About OpsOrch",
+    description:
+        "Learn about OpsOrch's mission, architecture, and the team building an open, unified incident-operations platform.",
+    alternates: {
+        canonical: pageUrl,
+    },
+    openGraph: {
+        url: pageUrl,
+        title: "About OpsOrch",
+        description:
+            "Discover the mission and principles behind OpsOrch, the open source unified operations platform for responders.",
+    },
+};
 
 export default function AboutPage() {
     return (
         <div className="min-h-screen px-4 py-16 sm:px-6 lg:px-10">
             <div className="mx-auto max-w-4xl space-y-12">
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@graph": [
+                                {
+                                    "@type": "AboutPage",
+                                    name: "About OpsOrch",
+                                    description:
+                                        "Details on OpsOrch's mission to unify incidents, logs, metrics, tickets, messaging, and services.",
+                                    url: pageUrl,
+                                    isPartOf: {
+                                        "@type": "WebSite",
+                                        "@id": "https://opsorch.com/#website",
+                                        name: "OpsOrch",
+                                    },
+                                },
+                                {
+                                    "@type": "BreadcrumbList",
+                                    itemListElement: [
+                                        {
+                                            "@type": "ListItem",
+                                            position: 1,
+                                            name: "Home",
+                                            item: "https://opsorch.com",
+                                        },
+                                        {
+                                            "@type": "ListItem",
+                                            position: 2,
+                                            name: "About",
+                                            item: pageUrl,
+                                        },
+                                    ],
+                                },
+                            ],
+                        }),
+                    }}
+                />
                 {/* Header */}
                 <header className="text-center">
                     <div className="mb-4 flex justify-center">
@@ -28,13 +85,13 @@ export default function AboutPage() {
                     <p className="mt-4 text-slate-300 leading-relaxed">
                         OpsOrch is an open, modular incident-operations platform that unifies incidents, logs,
                         metrics, tickets, messaging, and services behind one orchestration layer. We believe that
-                        operators shouldn't have to context-switch between Jira, PagerDuty, Grafana, and Slack
+                        operators shouldn&rsquo;t have to context-switch between Jira, PagerDuty, Grafana, and Slack
                         during an outage.
                     </p>
                     <p className="mt-4 text-slate-300 leading-relaxed">
                         Our mission is to eliminate tool sprawl by providing a single, cohesive surface where
-                        every signal and every action flows together naturally. When you ask "Show me the last
-                        two impactful incidents," OpsOrch retrieves incidents, alerts, tickets, and relevant
+                        every signal and every action flows together naturally. When you ask &ldquo;Show me the last
+                        two impactful incidents,&rdquo; OpsOrch retrieves incidents, alerts, tickets, and relevant
                         logs, all in one place, with correlated timelines and evidence.
                     </p>
                 </section>
@@ -69,7 +126,7 @@ export default function AboutPage() {
                         <div>
                             <h3 className="text-lg font-semibold text-[#72e0e0]">AI-Powered Copilot</h3>
                             <p className="mt-2 text-sm text-slate-300">
-                                Ask "What caused the severity escalation?" and get answers with evidence. Copilot
+                                Ask &ldquo;What caused the severity escalation?&rdquo; and get answers with evidence. Copilot
                                 correlates incidents, logs, metrics, and tickets using MCP tools, providing cross-stack
                                 intelligence that saves hours of manual investigation.
                             </p>
@@ -84,7 +141,7 @@ export default function AboutPage() {
                         <div>
                             <h3 className="text-lg font-semibold text-[#72e0e0]">Zero Data Storage</h3>
                             <p className="mt-2 text-sm text-slate-300">
-                                OpsOrch doesn't store your operational data. It orchestrates requests across your
+                                OpsOrch doesn&rsquo;t store your operational data. It orchestrates requests across your
                                 existing systems and returns unified results. Your data stays where it belongs.
                             </p>
                         </div>
@@ -96,7 +153,7 @@ export default function AboutPage() {
                     <h2 className="text-2xl font-semibold text-slate-900">Built by Operators, for Operators</h2>
                     <p className="mt-4 text-slate-700 leading-relaxed">
                         OpsOrch is developed by a team that has lived through the pain of fragmented tools
-                        and late-night incidents. We understand the stakes and the stress, which is why we're
+                        and late-night incidents. We understand the stakes and the stress, which is why we&rsquo;re
                         committed to building a platform that genuinely helps teams operate with confidence.
                     </p>
                 </section>

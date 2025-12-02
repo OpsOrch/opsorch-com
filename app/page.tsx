@@ -156,6 +156,46 @@ export default function Home() {
           </p>
         </section>
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://opsorch.com/#organization",
+                name: "OpsOrch",
+                url: "https://opsorch.com",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://opsorch.com/OpsOrch.png",
+                  width: 512,
+                  height: 512,
+                },
+                sameAs: ["https://github.com/OpsOrch"],
+              },
+              {
+                "@type": "SoftwareApplication",
+                name: "OpsOrch",
+                description:
+                  "Unified Ops Platform that stitches together telemetry, incident response, and automation.",
+                applicationCategory: "DevOpsTool",
+                operatingSystem: "Linux, macOS, Windows",
+                url: "https://opsorch.com",
+                author: {
+                  "@id": "https://opsorch.com/#organization",
+                },
+                offers: {
+                  "@type": "Offer",
+                  price: "0",
+                  priceCurrency: "USD",
+                },
+              },
+            ],
+          }),
+        }}
+      />
     </div>
   );
 }

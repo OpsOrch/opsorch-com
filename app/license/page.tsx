@@ -2,6 +2,22 @@ import fs from "fs";
 import path from "path";
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
+
+const pageUrl = "https://opsorch.com/license";
+
+export const metadata: Metadata = {
+    title: "OpsOrch Enterprise License",
+    description: "Review the enterprise license terms that govern commercial use of the OpsOrch platform.",
+    alternates: {
+        canonical: pageUrl,
+    },
+    openGraph: {
+        url: pageUrl,
+        title: "OpsOrch Enterprise License",
+        description: "Read the enterprise terms for deploying OpsOrch in regulated or commercial environments.",
+    },
+};
 
 export default async function LicensePage() {
     const licensePath = path.join(process.cwd(), "LICENSE-ENTERPRISE");
@@ -18,6 +34,39 @@ export default async function LicensePage() {
 
     return (
         <div className="min-h-screen px-4 py-12 sm:px-6 lg:px-10">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@graph": [
+                            {
+                                "@type": "WebPage",
+                                name: "OpsOrch Enterprise License",
+                                description: "Review the OpsOrch license text for enterprise deployments.",
+                                url: pageUrl,
+                            },
+                            {
+                                "@type": "BreadcrumbList",
+                                itemListElement: [
+                                    {
+                                        "@type": "ListItem",
+                                        position: 1,
+                                        name: "Home",
+                                        item: "https://opsorch.com",
+                                    },
+                                    {
+                                        "@type": "ListItem",
+                                        position: 2,
+                                        name: "Enterprise License",
+                                        item: pageUrl,
+                                    },
+                                ],
+                            },
+                        ],
+                    }),
+                }}
+            />
             <div className="mx-auto flex max-w-4xl flex-col gap-10">
                 <header className="flex flex-col gap-6 border-b border-[#2c4c52] pb-8">
                     <div className="flex items-center gap-3">
