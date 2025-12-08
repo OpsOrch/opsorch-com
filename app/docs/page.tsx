@@ -214,6 +214,27 @@ export default function DocsPage() {
                         </Link>
 
                         <Link
+                            href="https://github.com/OpsOrch/opsorch-datadog-adapter"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-xl border border-[#1f3c43] bg-[#0d1416]/50 p-5 transition hover:-translate-y-1 hover:border-[#55cfd0]"
+                        >
+                            <div className="flex items-start justify-between">
+                                <div>
+                                    <h3 className="text-lg font-semibold text-white">Datadog Adapter</h3>
+                                    <p className="mt-1 text-xs text-[#72e0e0]">Metrics, Logs, Alerts, Incidents & Services</p>
+                                </div>
+                                <span className="text-slate-500">↗</span>
+                            </div>
+                            <ul className="mt-3 space-y-1 text-sm text-slate-400">
+                                <li>• Official Datadog Go SDK v2</li>
+                                <li>• Metrics, logs, monitors</li>
+                                <li>• Incident management</li>
+                                <li>• Service catalog integration</li>
+                            </ul>
+                        </Link>
+
+                        <Link
                             href="https://github.com/OpsOrch/opsorch-jira-adapter"
                             target="_blank"
                             rel="noopener noreferrer"

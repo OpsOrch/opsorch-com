@@ -27,6 +27,11 @@ const repositories = [
     focus: "PagerDuty",
   },
   {
+    name: "opsorch-datadog-adapter",
+    description: "Production-ready Datadog adapter using official Go SDK v2 for metrics, logs, monitors, incidents, and service catalog integration.",
+    focus: "Datadog",
+  },
+  {
     name: "opsorch-jira-adapter",
     description: "Production-ready Jira ticket adapter that integrates with Atlassian Jira REST API v3 for creating, querying, and updating issues.",
     focus: "Jira",
