@@ -66,27 +66,40 @@ export default function DocsPage() {
                 <section className="opsorch-card border-[#2c4c52] p-8">
                     <h2 className="text-3xl font-semibold text-white">Quick Start</h2>
                     <p className="mt-4 text-slate-300">
-                        Get up and running with OpsOrch in minutes
+                        Get the complete OpsOrch stack running in under a minute with Docker Compose
                     </p>
                     <div className="mt-6 space-y-4">
                         <div className="rounded-xl bg-[#0d1416] p-4">
-                            <p className="text-sm text-slate-400">1. Clone OpsOrch Core</p>
+                            <p className="text-sm text-slate-400">1. Download Docker Compose configuration</p>
                             <pre className="mt-2 overflow-x-auto text-sm text-[#72e0e0]">
-                                <code>git clone https://github.com/OpsOrch/opsorch-core.git</code>
+                                <code>curl -O https://raw.githubusercontent.com/OpsOrch/.github/main/profile/docker-compose.yml</code>
                             </pre>
                         </div>
                         <div className="rounded-xl bg-[#0d1416] p-4">
-                            <p className="text-sm text-slate-400">2. Install dependencies</p>
+                            <p className="text-sm text-slate-400">2. Start the complete stack</p>
                             <pre className="mt-2 overflow-x-auto text-sm text-[#72e0e0]">
-                                <code>cd opsorch-core && go mod download</code>
+                                <code>docker-compose up -d</code>
                             </pre>
                         </div>
                         <div className="rounded-xl bg-[#0d1416] p-4">
-                            <p className="text-sm text-slate-400">3. Run with mock adapters</p>
+                            <p className="text-sm text-slate-400">3. Access the services</p>
                             <pre className="mt-2 overflow-x-auto text-sm text-[#72e0e0]">
-                                <code>OPSORCH_INCIDENT_PROVIDER=incidentmock go run ./cmd/opsorch</code>
+                                <code>open http://localhost:3000  # Console UI{'\n'}curl http://localhost:8080/health  # Core API</code>
                             </pre>
                         </div>
+                    </div>
+                    <div className="mt-6 rounded-xl border border-[#2c4c52] bg-[#0d1416]/30 p-4">
+                        <p className="text-sm text-slate-300">
+                            <strong className="text-white">What you get:</strong> Complete OpsOrch stack including:
+                        </p>
+                        <ul className="mt-2 space-y-1 text-sm text-slate-400">
+                            <li>• <strong className="text-white">OpsOrch Console OSS</strong> - Modern web UI for incidents, logs, metrics, and services</li>
+                            <li>• <strong className="text-white">OpsOrch Core</strong> - API orchestration layer with mock adapters (demo data)</li>
+                            <li>• <strong className="text-white">OpsOrch MCP</strong> - AI tools server for LLM integration</li>
+                        </ul>
+                        <p className="mt-2 text-sm text-slate-300">
+                            Perfect for evaluation, development, and understanding the complete OpsOrch ecosystem.
+                        </p>
                     </div>
                 </section>
 
@@ -134,12 +147,12 @@ export default function DocsPage() {
 
                         <div className="rounded-xl border border-[#2c4c52] bg-[#0d1416]/50 p-6">
                             <h3 className="text-xl font-semibold text-[#72e0e0]">4. Control Plane</h3>
-                            <p className="mt-2 text-sm text-slate-400">opsorch-console</p>
+                            <p className="mt-2 text-sm text-slate-400">opsorch-console (Open Source)</p>
                             <ul className="mt-3 space-y-1 text-sm text-slate-300">
-                                <li>• Next.js operator UI</li>
-                                <li>• Incident & ticket management</li>
-                                <li>• Copilot integration</li>
-                                <li>• Real-time updates</li>
+                                <li>• Unified incident, alert & ticket management</li>
+                                <li>• Advanced log & metric visualization</li>
+                                <li>• Service catalog & dependency mapping</li>
+                                <li>• AI-powered Copilot chat (Enterprise)</li>
                             </ul>
                         </div>
                     </div>
@@ -375,6 +388,125 @@ export default function DocsPage() {
                     </div>
                 </section>
 
+                {/* Console Overview */}
+                <section className="opsorch-card border-[#1f3c43] p-8">
+                    <h2 className="text-3xl font-semibold text-white">OpsOrch Console</h2>
+                    <p className="mt-4 text-slate-300">
+                        Modern operator-focused web UI providing unified access to all operational data and AI assistance
+                    </p>
+
+                    <div className="mt-6 grid gap-6 md:grid-cols-2">
+                        <div className="rounded-xl border border-[#2c4c52] bg-[#0d1416]/50 p-6">
+                            <h3 className="text-xl font-semibold text-[#72e0e0]">OSS Edition</h3>
+                            <p className="mt-2 text-sm text-slate-400">Apache 2.0 Licensed</p>
+                            <ul className="mt-3 space-y-1 text-sm text-slate-300">
+                                <li>• <strong>Incidents:</strong> Browse, search, filter with advanced queries</li>
+                                <li>• <strong>Alerts:</strong> Real-time monitoring alerts from all providers</li>
+                                <li>• <strong>Logs:</strong> Unified log search across multiple sources</li>
+                                <li>• <strong>Metrics:</strong> Time-series visualization and querying</li>
+                                <li>• <strong>Services:</strong> Service catalog and dependency mapping</li>
+                                <li>• <strong>Tickets:</strong> Integrated ticketing system management</li>
+                                <li>• <strong>Settings:</strong> Configure Core and Copilot endpoints</li>
+                            </ul>
+                        </div>
+
+                        <div className="rounded-xl border border-[#2c4c52] bg-[#0d1416]/50 p-6">
+                            <h3 className="text-xl font-semibold text-[#72e0e0]">Enterprise Edition</h3>
+                            <p className="mt-2 text-sm text-slate-400">Commercial License</p>
+                            <ul className="mt-3 space-y-1 text-sm text-slate-300">
+                                <li>• <strong>All OSS features</strong> plus:</li>
+                                <li>• <strong>AI Copilot Chat:</strong> Conversational operational assistant</li>
+                                <li>• <strong>Chat History:</strong> Persistent conversation management</li>
+                                <li>• <strong>Smart References:</strong> AI-generated filtered view links</li>
+                                <li>• <strong>Multi-step Reasoning:</strong> Complex problem analysis</li>
+                                <li>• <strong>Evidence-based Answers:</strong> Citations and data sources</li>
+                                <li>• <strong>Context Awareness:</strong> Service and incident correlation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="mt-6 space-y-4">
+                        <div className="rounded-xl border border-[#2c4c52] bg-[#0d1416]/50 p-5">
+                            <h4 className="font-semibold text-[#72e0e0]">Key Features</h4>
+                            <div className="mt-3 grid gap-3 text-sm text-slate-300 md:grid-cols-2">
+                                <div>
+                                    <strong className="text-white">Advanced Filtering:</strong>
+                                    <ul className="mt-1 space-y-1 text-slate-400">
+                                        <li>• URL-based query parameters for sharing</li>
+                                        <li>• Multi-select status and severity filters</li>
+                                        <li>• Service, environment, and team scoping</li>
+                                        <li>• Free-text search across all fields</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong className="text-white">Real-time Updates:</strong>
+                                    <ul className="mt-1 space-y-1 text-slate-400">
+                                        <li>• Live incident status changes</li>
+                                        <li>• Alert notifications and escalations</li>
+                                        <li>• Metric threshold breaches</li>
+                                        <li>• Service health monitoring</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="rounded-xl border border-[#2c4c52] bg-[#0d1416]/50 p-5">
+                            <h4 className="font-semibold text-[#72e0e0]">Installation & Deployment</h4>
+                            <div className="mt-3 space-y-3">
+                                <div>
+                                    <strong className="text-sm text-white">Docker (OSS Edition):</strong>
+                                    <pre className="mt-1 overflow-x-auto rounded bg-[#0d1416] p-2 text-xs text-[#72e0e0]">
+                                        <code>docker run -p 3000:3000 -e NEXT_PUBLIC_OPSORCH_CORE_URL=http://localhost:8080 ghcr.io/opsorch/opsorch-console:latest-oss</code>
+                                    </pre>
+                                </div>
+                                <div>
+                                    <strong className="text-sm text-white">Docker (Enterprise Edition):</strong>
+                                    <pre className="mt-1 overflow-x-auto rounded bg-[#0d1416] p-2 text-xs text-[#72e0e0]">
+                                        <code>docker run -p 3000:3000 -e NEXT_PUBLIC_COPILOT_URL=http://localhost:6060 ghcr.io/opsorch/opsorch-console:latest-enterprise</code>
+                                    </pre>
+                                </div>
+                                <div>
+                                    <strong className="text-sm text-white">Local Development:</strong>
+                                    <pre className="mt-1 overflow-x-auto rounded bg-[#0d1416] p-2 text-xs text-[#72e0e0]">
+                                        <code>git clone https://github.com/OpsOrch/opsorch-console.git{'\n'}cd opsorch-console && npm install{'\n'}npm run dev  # OSS edition{'\n'}npm run dev:enterprise  # Enterprise edition</code>
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="rounded-xl border border-[#2c4c52] bg-[#0d1416]/50 p-5">
+                            <h4 className="font-semibold text-[#72e0e0]">Configuration</h4>
+                            <div className="mt-3 space-y-2 text-sm text-slate-300">
+                                <div>
+                                    <strong className="text-white">Environment Variables:</strong>
+                                    <ul className="mt-1 space-y-1 text-slate-400">
+                                        <li>• <code className="text-[#72e0e0]">NEXT_PUBLIC_OPSORCH_CORE_URL</code> - OpsOrch Core API endpoint</li>
+                                        <li>• <code className="text-[#72e0e0]">NEXT_PUBLIC_COPILOT_URL</code> - OpsOrch Copilot endpoint (Enterprise)</li>
+                                        <li>• <code className="text-[#72e0e0]">NEXT_PUBLIC_OPSORCH_EDITION</code> - Set to 'oss' or 'enterprise'</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong className="text-white">Runtime Configuration:</strong>
+                                    <p className="mt-1 text-slate-400">
+                                        Navigate to Settings (/settings) to configure endpoints without restarting the application.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="mt-6">
+                        <Link
+                            href="https://github.com/OpsOrch/opsorch-console"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-sm font-medium text-[#72e0e0] transition hover:text-[#55cfd0]"
+                        >
+                            View Console Repository →
+                        </Link>
+                    </div>
+                </section>
+
                 {/* API Examples */}
                 <section className="opsorch-card opsorch-card--light p-8">
                     <h2 className="text-3xl font-semibold text-slate-900">API Examples</h2>
@@ -428,9 +560,72 @@ export default function DocsPage() {
                     </div>
                 </section>
 
+                {/* Docker Compose */}
+                <section className="opsorch-card border-[#2c4c52] p-8">
+                    <h2 className="text-3xl font-semibold text-white">Docker Compose Configurations</h2>
+                    <p className="mt-4 text-slate-300">
+                        Pre-built Docker Compose configurations for different environments and use cases
+                    </p>
+
+                    <div className="mt-6 grid gap-4 md:grid-cols-3">
+                        <div className="rounded-xl border border-[#1f3c43] bg-[#0d1416]/50 p-5">
+                            <h4 className="font-semibold text-[#72e0e0]">Demo/Evaluation</h4>
+                            <p className="mt-2 text-xs text-slate-400">docker-compose.yml</p>
+                            <ul className="mt-3 space-y-1 text-sm text-slate-300">
+                                <li>• Mock adapters with demo data</li>
+                                <li>• Console OSS edition</li>
+                                <li>• MCP server for AI tools</li>
+                                <li>• Perfect for first-time users</li>
+                            </ul>
+                            <pre className="mt-3 overflow-x-auto rounded bg-[#0d1416] p-2 text-xs text-[#72e0e0]">
+                                <code>curl -O https://raw.githubusercontent.com/OpsOrch/.github/main/profile/docker-compose.yml</code>
+                            </pre>
+                        </div>
+
+                        <div className="rounded-xl border border-[#1f3c43] bg-[#0d1416]/50 p-5">
+                            <h4 className="font-semibold text-[#72e0e0]">Development</h4>
+                            <p className="mt-2 text-xs text-slate-400">docker-compose.dev.yml</p>
+                            <ul className="mt-3 space-y-1 text-sm text-slate-300">
+                                <li>• Both OSS & Enterprise consoles</li>
+                                <li>• Debug logging enabled</li>
+                                <li>• Copilot placeholder</li>
+                                <li>• Development-friendly config</li>
+                            </ul>
+                            <pre className="mt-3 overflow-x-auto rounded bg-[#0d1416] p-2 text-xs text-[#72e0e0]">
+                                <code>curl -O https://raw.githubusercontent.com/OpsOrch/.github/main/profile/docker-compose.dev.yml</code>
+                            </pre>
+                        </div>
+
+                        <div className="rounded-xl border border-[#1f3c43] bg-[#0d1416]/50 p-5">
+                            <h4 className="font-semibold text-[#72e0e0]">Production</h4>
+                            <p className="mt-2 text-xs text-slate-400">docker-compose.prod.yml</p>
+                            <ul className="mt-3 space-y-1 text-sm text-slate-300">
+                                <li>• Custom adapter builds</li>
+                                <li>• Environment-driven config</li>
+                                <li>• Real provider credentials</li>
+                                <li>• Production-ready setup</li>
+                            </ul>
+                            <pre className="mt-3 overflow-x-auto rounded bg-[#0d1416] p-2 text-xs text-[#72e0e0]">
+                                <code>curl -O https://raw.githubusercontent.com/OpsOrch/.github/main/profile/docker-compose.prod.yml</code>
+                            </pre>
+                        </div>
+                    </div>
+
+                    <div className="mt-6">
+                        <Link
+                            href="https://github.com/OpsOrch/.github/blob/main/profile/DOCKER_COMPOSE.md"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-sm font-medium text-[#72e0e0] transition hover:text-[#55cfd0]"
+                        >
+                            View Complete Docker Compose Documentation →
+                        </Link>
+                    </div>
+                </section>
+
                 {/* Deployment */}
                 <section className="opsorch-card opsorch-card--light p-8">
-                    <h2 className="text-3xl font-semibold text-slate-900">Deployment</h2>
+                    <h2 className="text-3xl font-semibold text-slate-900">Custom Deployment</h2>
                     <p className="mt-4 text-slate-700">
                         OpsOrch adapters publish pre-built binaries that you can mix and match to create custom Docker images.
                     </p>
@@ -447,9 +642,9 @@ export default function DocsPage() {
 WORKDIR /opt/opsorch
 
 # Download adapter binaries (linux-amd64)
-ADD https://github.com/opsorch/opsorch-jira-adapter/releases/download/v0.2.1/ticketplugin-linux-amd64 ./plugins/ticketplugin
-ADD https://github.com/opsorch/opsorch-pagerduty-adapter/releases/download/v0.1.5/incidentplugin-linux-amd64 ./plugins/incidentplugin
-ADD https://github.com/opsorch/opsorch-slack-adapter/releases/download/v0.3.0/messagingplugin-linux-amd64 ./plugins/messagingplugin
+ADD https://github.com/OpsOrch/opsorch-jira-adapter/releases/download/v0.2.1/ticketplugin-linux-amd64 ./plugins/ticketplugin
+ADD https://github.com/OpsOrch/opsorch-pagerduty-adapter/releases/download/v0.1.5/incidentplugin-linux-amd64 ./plugins/incidentplugin
+ADD https://github.com/OpsOrch/opsorch-slack-adapter/releases/download/v0.3.0/messagingplugin-linux-amd64 ./plugins/messagingplugin
 
 # Make binaries executable
 RUN chmod +x ./plugins/*
@@ -584,7 +779,7 @@ docker run --rm -p 8080:8080 \\
                 <section className="opsorch-card opsorch-card--light p-8">
                     <h2 className="text-3xl font-semibold text-slate-900">Additional Resources</h2>
 
-                    <div className="mt-6 grid gap-4 md:grid-cols-3">
+                    <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                         <Link
                             href="https://github.com/OpsOrch"
                             target="_blank"
@@ -594,6 +789,18 @@ docker run --rm -p 8080:8080 \\
                             <h3 className="font-semibold text-slate-900">GitHub Organization</h3>
                             <p className="mt-2 text-sm text-slate-600">
                                 Browse all repositories, contribute, and open issues
+                            </p>
+                        </Link>
+
+                        <Link
+                            href="https://github.com/OpsOrch/opsorch-console"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-xl border border-black/10 bg-white/80 p-5 shadow-sm transition hover:-translate-y-1 hover:border-[#3d8f92]"
+                        >
+                            <h3 className="font-semibold text-slate-900">Console (Open Source)</h3>
+                            <p className="mt-2 text-sm text-slate-600">
+                                Next.js operator UI now available as open source
                             </p>
                         </Link>
 

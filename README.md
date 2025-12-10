@@ -7,10 +7,37 @@ The official marketing and landing page website for OpsOrch. This Next.js site p
 OpsOrch.com serves as the public-facing website for the OpsOrch project, featuring:
 - Product overview and key features
 - Architecture and integration information
-- Documentation links and getting started guides
+- Docker Compose quick start guides
+- Comprehensive documentation for all components
+- Open source Console information
 - Community and contribution information
 
 > **Description from package.json**: OpsOrch stitches together telemetry, incident response, and automation so teams can see, decide, and act with confidence.
+
+## Recent Updates
+
+- **Console Open Source**: OpsOrch Console is now available as open source with both OSS and Enterprise editions
+- **Docker Compose**: Complete stack deployment with pre-built configurations for demo, development, and production
+- **Updated Documentation**: Comprehensive guides for Docker deployment and custom adapter builds
+- **Enhanced Quick Start**: Get the complete stack running in under a minute with Docker Compose
+
+## Key Features Documented
+
+### Docker Compose Configurations
+- **Demo/Evaluation**: `docker-compose.yml` - Mock adapters with realistic demo data
+- **Development**: `docker-compose.dev.yml` - Both OSS and Enterprise console editions
+- **Production**: `docker-compose.prod.yml` - Custom adapter builds with real providers
+
+### Open Source Components
+- **OpsOrch Core**: Stateless Go orchestration service
+- **OpsOrch MCP**: TypeScript MCP server for AI tools
+- **OpsOrch Console**: Next.js operator UI (OSS & Enterprise editions)
+- **Provider Adapters**: PagerDuty, Jira, Datadog, Prometheus, Slack, Elasticsearch
+
+### Quick Start Options
+- **One-minute setup**: Docker Compose with demo data
+- **Custom builds**: Mix and match adapter binaries
+- **Development environment**: Both console editions for testing
 
 ## Development
 

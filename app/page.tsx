@@ -56,6 +56,11 @@ const repositories = [
     description: "Model Context Protocol server that exposes OpsOrch Core HTTP APIs as MCP tools for agents and IDE copilots.",
     focus: "MCP",
   },
+  {
+    name: "opsorch-console",
+    description: "Modern Next.js operator UI with OSS and Enterprise editions. Unified interface for incidents, logs, metrics, services, and AI-powered assistance.",
+    focus: "Console",
+  },
 ];
 
 const pillars = [
@@ -155,10 +160,29 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="rounded-3xl border border-white/10 bg-[#122328]/70 px-6 py-5 text-center text-sm text-slate-200">
-          <p>
-            OpsOrch Console and OpsOrch Copilot are still cooking in our private repos. Stay tuned.
-          </p>
+        <section className="rounded-3xl border border-[#2c4c52] bg-[#0d1416]/50 px-6 py-5 text-center">
+          <div className="space-y-2">
+            <p className="text-sm font-semibold text-[#72e0e0]">Get Started</p>
+            <p className="text-sm text-slate-300">
+              Deploy the complete OpsOrch stack with Docker Compose or explore individual components.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3 pt-2">
+              <Link
+                href="/docs"
+                className="inline-flex items-center gap-1 rounded-lg border border-[#55cfd0] bg-[#10333a] px-3 py-1.5 text-xs font-medium text-white transition hover:bg-[#14454e]"
+              >
+                Quick Start Guide →
+              </Link>
+              <Link
+                href="https://github.com/OpsOrch"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 rounded-lg border border-[#2c4c52] bg-[#0d1416] px-3 py-1.5 text-xs font-medium text-slate-300 transition hover:bg-[#1a2b31]"
+              >
+                Browse GitHub ↗
+              </Link>
+            </div>
+          </div>
         </section>
       </div>
       <script
