@@ -36,6 +36,7 @@ export const metadata: Metadata = {
     "automation",
     "pagerduty",
     "jira",
+    "github",
     "prometheus",
     "slack",
     "elasticsearch",

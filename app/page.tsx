@@ -22,6 +22,11 @@ const repositories = [
     focus: "Mocks",
   },
   {
+    name: "opsorch-github-adapter",
+    description: "Production-ready GitHub adapter that integrates with GitHub Issues for ticket management and GitHub Actions for deployment tracking.",
+    focus: "GitHub",
+  },
+  {
     name: "opsorch-pagerduty-adapter",
     description: "Production-ready PagerDuty adapter that integrates with PagerDuty REST API v2 for creating, querying, and managing incidents, and discovering services.",
     focus: "PagerDuty",
