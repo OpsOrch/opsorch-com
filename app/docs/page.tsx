@@ -623,6 +623,74 @@ export default function DocsPage() {
                     </div>
                 </section>
 
+                <section className="opsorch-card opsorch-card--light p-8">
+                    <h2 className="text-3xl font-semibold text-slate-900">Provider Configuration</h2>
+                    <p className="mt-4 text-slate-700">
+                        OpsOrch Core calls <code className="font-mono text-[#0f766e]">loadProviderConfig</code> (<Link
+                            href="https://github.com/OpsOrch/opsorch-core/blob/main/api/provider_config_handler.go"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#0f766e] hover:underline"
+                        >
+                            opsorch-core/api/provider_config_handler.go
+                        </Link>) to hydrate each capability. Three environment variables drive every provider:
+                    </p>
+                    <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-700">
+                        <li><code className="font-mono text-[#0f766e]">OPSORCH_&lt;CAP&gt;_PROVIDER</code> – registered in-process adapter name (e.g., <code>jira</code>, <code>pagerduty</code>)</li>
+                        <li><code className="font-mono text-[#0f766e]">OPSORCH_&lt;CAP&gt;_PLUGIN</code> – optional JSON-RPC plugin path that overrides the registry</li>
+                        <li><code className="font-mono text-[#0f766e]">OPSORCH_&lt;CAP&gt;_CONFIG</code> – JSON payload forwarded verbatim to the adapter constructor</li>
+                    </ul>
+                    <p className="mt-3 text-sm text-slate-700">
+                        Our Docker Compose templates ship with the following JSON payloads. Mirror these keys when you build your own images:
+                    </p>
+                    <div className="mt-4 overflow-x-auto">
+                        <table className="min-w-full border-collapse text-sm text-slate-800">
+                            <thead>
+                                <tr className="text-left">
+                                    <th className="border-b border-slate-200 px-3 py-2">Capability</th>
+                                    <th className="border-b border-slate-200 px-3 py-2">Env Var</th>
+                                    <th className="border-b border-slate-200 px-3 py-2">Example Config</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td className="border-b border-slate-100 px-3 py-2">Incident (PagerDuty)</td>
+                                    <td className="border-b border-slate-100 px-3 py-2"><code className="font-mono text-[#0f766e]">OPSORCH_INCIDENT_CONFIG</code></td>
+                                    <td className="border-b border-slate-100 px-3 py-2"><code>{`{"apiToken":"pd_token","serviceID":"PXXXXXX","fromEmail":"pd-user@example.com","apiURL":"https://api.pagerduty.com"}`}</code></td>
+                                </tr>
+                                <tr>
+                                    <td className="border-b border-slate-100 px-3 py-2">Ticket (Jira)</td>
+                                    <td className="border-b border-slate-100 px-3 py-2"><code className="font-mono text-[#0f766e]">OPSORCH_TICKET_CONFIG</code></td>
+                                    <td className="border-b border-slate-100 px-3 py-2"><code>{`{"apiToken":"jira_token","email":"user@example.com","apiURL":"https://your-domain.atlassian.net","projectKey":"OPS"}`}</code></td>
+                                </tr>
+                                <tr>
+                                    <td className="border-b border-slate-100 px-3 py-2">Metric (Prometheus)</td>
+                                    <td className="border-b border-slate-100 px-3 py-2"><code className="font-mono text-[#0f766e]">OPSORCH_METRIC_CONFIG</code></td>
+                                    <td className="border-b border-slate-100 px-3 py-2"><code>{`{"url":"http://prometheus:9090"}`}</code></td>
+                                </tr>
+                                <tr>
+                                    <td className="border-b border-slate-100 px-3 py-2">Log (Elasticsearch)</td>
+                                    <td className="border-b border-slate-100 px-3 py-2"><code className="font-mono text-[#0f766e]">OPSORCH_LOG_CONFIG</code></td>
+                                    <td className="border-b border-slate-100 px-3 py-2"><code>{`{"addresses":["http://elasticsearch:9200"],"username":"elastic","password":"changeme","indexPattern":"logs-*"}`}</code></td>
+                                </tr>
+                                <tr>
+                                    <td className="border-b border-slate-100 px-3 py-2">Messaging (Slack)</td>
+                                    <td className="border-b border-slate-100 px-3 py-2"><code className="font-mono text-[#0f766e]">OPSORCH_MESSAGING_CONFIG</code></td>
+                                    <td className="border-b border-slate-100 px-3 py-2"><code>{`{"token":"xoxb-your-slack-bot-token"}`}</code></td>
+                                </tr>
+                                <tr>
+                                    <td className="px-3 py-2">Service (PagerDuty)</td>
+                                    <td className="px-3 py-2"><code className="font-mono text-[#0f766e]">OPSORCH_SERVICE_CONFIG</code></td>
+                                    <td className="px-3 py-2"><code>{`{"apiToken":"pd_token","apiURL":"https://api.pagerduty.com"}`}</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p className="mt-4 text-sm text-slate-700">
+                        Additional adapters (GitHub Issues, Datadog, Prometheus alerts, deployments, etc.) document their own required JSON fields—drop those payloads into <code className="font-mono text-[#0f766e]">OPSORCH_&lt;CAP&gt;_CONFIG</code> and Core will pass them straight through.
+                    </p>
+                </section>
+
                 {/* Deployment */}
                 <section className="opsorch-card opsorch-card--light p-8">
                     <h2 className="text-3xl font-semibold text-slate-900">Custom Deployment</h2>
@@ -662,9 +730,9 @@ ENV OPSORCH_TICKET_PLUGIN=/opt/opsorch/plugins/ticketplugin \\
                                 <code>{`docker build -t my-opsorch:latest .
 
 docker run --rm -p 8080:8080 \\
-  -e OPSORCH_TICKET_CONFIG='{"apiToken":"...","projectKey":"PROJ"}' \\
-  -e OPSORCH_INCIDENT_CONFIG='{"apiToken":"...","serviceID":"..."}' \\
-  -e OPSORCH_MESSAGING_CONFIG='{"token":"xoxb-..."}' \\
+  -e OPSORCH_TICKET_CONFIG='{"apiToken":"...","email":"user@example.com","apiURL":"https://your-domain.atlassian.net","projectKey":"PROJ"}' \\
+  -e OPSORCH_INCIDENT_CONFIG='{"apiToken":"...","serviceID":"PXXXXXX","fromEmail":"pagerduty-user@example.com","apiURL":"https://api.pagerduty.com"}' \\
+  -e OPSORCH_MESSAGING_CONFIG='{"token":"xoxb-your-slack-bot-token"}' \\
   my-opsorch:latest`}</code>
                             </pre>
                         </div>
