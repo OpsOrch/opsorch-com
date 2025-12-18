@@ -152,6 +152,7 @@ export default function DocsPage() {
                                 <li>• Unified incident, alert & ticket management</li>
                                 <li>• Advanced log & metric visualization</li>
                                 <li>• Service catalog & dependency mapping</li>
+                                <li>• Team management & organizational structure</li>
                                 <li>• AI-powered Copilot chat (Enterprise)</li>
                             </ul>
                         </div>
@@ -166,7 +167,7 @@ export default function DocsPage() {
                         <div>
                             <h3 className="text-xl font-semibold text-[#3d8f92]">Unified API Layer</h3>
                             <p className="mt-2 text-slate-700">
-                                OpsOrch exposes unified APIs for incidents, logs, metrics, tickets, messaging, and services.
+                                OpsOrch exposes unified APIs for incidents, logs, metrics, tickets, messaging, services, and teams.
                                 All schemas are documented and evolving to support growing operational needs.
                             </p>
                         </div>
@@ -183,7 +184,7 @@ export default function DocsPage() {
                             <h3 className="text-xl font-semibold text-[#3d8f92]">QueryScope</h3>
                             <p className="mt-2 text-slate-700">
                                 All queries accept a shared `QueryScope` filter with service, team, and environment fields.
-                                Adapters map these to their native query languages for consistent cross-provider filtering.
+                                Adapters map these to their native query languages for consistent cross-provider filtering. Team scoping enables organizational filtering across all operational data.
                             </p>
                         </div>
 
@@ -332,6 +333,27 @@ export default function DocsPage() {
                         </Link>
 
                         <Link
+                            href="https://github.com/OpsOrch/opsorch-github-adapter"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-xl border border-[#1f3c43] bg-[#0d1416]/50 p-5 transition hover:-translate-y-1 hover:border-[#55cfd0]"
+                        >
+                            <div className="flex items-start justify-between">
+                                <div>
+                                    <h3 className="text-lg font-semibold text-white">GitHub Teams Adapter</h3>
+                                    <p className="mt-1 text-xs text-[#72e0e0]">Teams</p>
+                                </div>
+                                <span className="text-slate-500">↗</span>
+                            </div>
+                            <ul className="mt-3 space-y-1 text-sm text-slate-400">
+                                <li>• Query GitHub Teams with filters</li>
+                                <li>• Get team members with roles</li>
+                                <li>• Support for nested hierarchies</li>
+                                <li>• Organizational structure mapping</li>
+                            </ul>
+                        </Link>
+
+                        <Link
                             href="https://github.com/OpsOrch/opsorch-mock-adapters"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -371,6 +393,8 @@ export default function DocsPage() {
                                 <li>• Find patterns across similar incidents</li>
                                 <li>• Correlate metric spikes with system events</li>
                                 <li>• Query logs and surface dominant error patterns</li>
+                                <li>• Identify team ownership and escalation paths</li>
+                                <li>• Answer questions about organizational structure</li>
                             </ul>
                         </div>
 
@@ -405,6 +429,7 @@ export default function DocsPage() {
                                 <li>• <strong>Logs:</strong> Unified log search across multiple sources</li>
                                 <li>• <strong>Metrics:</strong> Time-series visualization and querying</li>
                                 <li>• <strong>Services:</strong> Service catalog and dependency mapping</li>
+                                <li>• <strong>Teams:</strong> Team management and organizational structure</li>
                                 <li>• <strong>Tickets:</strong> Integrated ticketing system management</li>
                                 <li>• <strong>Settings:</strong> Configure Core and Copilot endpoints</li>
                             </ul>
@@ -557,6 +582,26 @@ export default function DocsPage() {
   }'`}</code>
                             </pre>
                         </div>
+
+                        <div>
+                            <h4 className="font-semibold text-slate-900">Query Teams</h4>
+                            <pre className="mt-2 overflow-x-auto rounded-lg bg-slate-100 p-4 text-xs">
+                                <code>{`curl -X POST http://localhost:8080/teams/query \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "name": "backend",
+    "tags": {"type": "engineering"},
+    "scope": {"service": "api"}
+  }'`}</code>
+                            </pre>
+                        </div>
+
+                        <div>
+                            <h4 className="font-semibold text-slate-900">Get Team Members</h4>
+                            <pre className="mt-2 overflow-x-auto rounded-lg bg-slate-100 p-4 text-xs">
+                                <code>{`curl http://localhost:8080/teams/engineering/members`}</code>
+                            </pre>
+                        </div>
                     </div>
                 </section>
 
@@ -679,9 +724,14 @@ export default function DocsPage() {
                                     <td className="border-b border-slate-100 px-3 py-2"><code>{`{"token":"xoxb-your-slack-bot-token"}`}</code></td>
                                 </tr>
                                 <tr>
-                                    <td className="px-3 py-2">Service (PagerDuty)</td>
-                                    <td className="px-3 py-2"><code className="font-mono text-[#0f766e]">OPSORCH_SERVICE_CONFIG</code></td>
-                                    <td className="px-3 py-2"><code>{`{"apiToken":"pd_token","apiURL":"https://api.pagerduty.com"}`}</code></td>
+                                    <td className="border-b border-slate-100 px-3 py-2">Service (PagerDuty)</td>
+                                    <td className="border-b border-slate-100 px-3 py-2"><code className="font-mono text-[#0f766e]">OPSORCH_SERVICE_CONFIG</code></td>
+                                    <td className="border-b border-slate-100 px-3 py-2"><code>{`{"apiToken":"pd_token","apiURL":"https://api.pagerduty.com"}`}</code></td>
+                                </tr>
+                                <tr>
+                                    <td className="px-3 py-2">Team (GitHub)</td>
+                                    <td className="px-3 py-2"><code className="font-mono text-[#0f766e]">OPSORCH_TEAM_CONFIG</code></td>
+                                    <td className="px-3 py-2"><code>{`{"token":"ghp_token","organization":"your-org"}`}</code></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -713,6 +763,7 @@ WORKDIR /opt/opsorch
 ADD https://github.com/OpsOrch/opsorch-jira-adapter/releases/download/v0.2.1/ticketplugin-linux-amd64 ./plugins/ticketplugin
 ADD https://github.com/OpsOrch/opsorch-pagerduty-adapter/releases/download/v0.1.5/incidentplugin-linux-amd64 ./plugins/incidentplugin
 ADD https://github.com/OpsOrch/opsorch-slack-adapter/releases/download/v0.3.0/messagingplugin-linux-amd64 ./plugins/messagingplugin
+ADD https://github.com/OpsOrch/opsorch-github-adapter/releases/download/v0.2.0/teamplugin-linux-amd64 ./plugins/teamplugin
 
 # Make binaries executable
 RUN chmod +x ./plugins/*
@@ -720,7 +771,8 @@ RUN chmod +x ./plugins/*
 # Configure plugins via environment variables
 ENV OPSORCH_TICKET_PLUGIN=/opt/opsorch/plugins/ticketplugin \\
     OPSORCH_INCIDENT_PLUGIN=/opt/opsorch/plugins/incidentplugin \\
-    OPSORCH_MESSAGING_PLUGIN=/opt/opsorch/plugins/messagingplugin`}</code>
+    OPSORCH_MESSAGING_PLUGIN=/opt/opsorch/plugins/messagingplugin \\
+    OPSORCH_TEAM_PLUGIN=/opt/opsorch/plugins/teamplugin`}</code>
                             </pre>
                         </div>
 
@@ -733,6 +785,7 @@ docker run --rm -p 8080:8080 \\
   -e OPSORCH_TICKET_CONFIG='{"apiToken":"...","email":"user@example.com","apiURL":"https://your-domain.atlassian.net","projectKey":"PROJ"}' \\
   -e OPSORCH_INCIDENT_CONFIG='{"apiToken":"...","serviceID":"PXXXXXX","fromEmail":"pagerduty-user@example.com","apiURL":"https://api.pagerduty.com"}' \\
   -e OPSORCH_MESSAGING_CONFIG='{"token":"xoxb-your-slack-bot-token"}' \\
+  -e OPSORCH_TEAM_CONFIG='{"token":"ghp_...","organization":"your-org"}' \\
   my-opsorch:latest`}</code>
                             </pre>
                         </div>
@@ -827,6 +880,15 @@ docker run --rm -p 8080:8080 \\
                             <ul className="mt-2 space-y-1 text-slate-400">
                                 <li>• query-services</li>
                                 <li>• list-services</li>
+                            </ul>
+                        </div>
+
+                        <div className="rounded-lg border border-[#2c4c52] bg-[#0d1416]/50 px-4 py-3">
+                            <strong className="text-white">Team Tools</strong>
+                            <ul className="mt-2 space-y-1 text-slate-400">
+                                <li>• query-teams</li>
+                                <li>• get-team</li>
+                                <li>• get-team-members</li>
                             </ul>
                         </div>
                     </div>

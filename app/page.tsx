@@ -23,7 +23,7 @@ const repositories = [
   },
   {
     name: "opsorch-github-adapter",
-    description: "Production-ready GitHub adapter that integrates with GitHub Issues for ticket management and GitHub Actions for deployment tracking.",
+    description: "Production-ready GitHub adapter that integrates with GitHub Issues for ticket management, GitHub Actions for deployment tracking, and GitHub Teams for team management.",
     focus: "GitHub",
   },
   {
@@ -71,8 +71,8 @@ const repositories = [
 const pillars = [
   {
     title: "Observe",
-    body: "Aggregate telemetry from incidents, logs, and metrics with shared context so responders see the whole picture immediately.",
-    metric: "6+ data planes",
+    body: "Aggregate telemetry from incidents, logs, metrics, and team ownership with shared context so responders see the whole picture immediately.",
+    metric: "7+ data planes",
   },
   {
     title: "Decide",
@@ -98,7 +98,7 @@ export default function Home() {
             </div>
             <h1 className="text-4xl font-semibold text-white md:text-5xl">Run resilient operations with OpsOrch</h1>
             <p className="max-w-2xl text-lg text-slate-200">
-              OpsOrch stitches together telemetry, incident response, and automation so teams can see, decide, and act with
+              OpsOrch stitches together telemetry, incident response, team ownership, and automation so teams can see, decide, and act with
               confidence. It brings every signal and every action point into one calm, cohesive surface where operators can move from detection to resolution without breaking flow.
             </p>
             <div className="flex flex-wrap gap-4">
