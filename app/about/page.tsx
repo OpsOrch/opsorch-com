@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import type { SVGProps } from "react";
 
 const pageUrl = "https://opsorch.com/about";
 
@@ -27,22 +28,24 @@ function SectionText({ children, className = "" }: { children: React.ReactNode; 
 }
 
 // Inline SVGs for lightweight visuals
+type IconProps = SVGProps<SVGSVGElement>;
+
 const Icons = {
-    PagerDuty: (props: any) => (
+    PagerDuty: (props: IconProps) => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
             <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
             <line x1="12" y1="9" x2="12" y2="13" />
             <line x1="12" y1="17" x2="12.01" y2="17" />
         </svg>
     ),
-    Chart: (props: any) => (
+    Chart: (props: IconProps) => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
             <line x1="18" y1="20" x2="18" y2="10" />
             <line x1="12" y1="20" x2="12" y2="4" />
             <line x1="6" y1="20" x2="6" y2="14" />
         </svg>
     ),
-    Logs: (props: any) => (
+    Logs: (props: IconProps) => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
             <line x1="8" y1="6" x2="21" y2="6" />
             <line x1="8" y1="12" x2="21" y2="12" />
@@ -52,7 +55,7 @@ const Icons = {
             <line x1="3" y1="18" x2="3.01" y2="18" />
         </svg>
     ),
-    Ticket: (props: any) => (
+    Ticket: (props: IconProps) => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
             <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
             <line x1="9" y1="3" x2="9" y2="21" />
@@ -60,12 +63,12 @@ const Icons = {
             <path d="M14 15h4" />
         </svg>
     ),
-    Message: (props: any) => (
+    Message: (props: IconProps) => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
         </svg>
     ),
-    Robot: (props: any) => (
+    Robot: (props: IconProps) => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
             <rect x="3" y="11" width="18" height="10" rx="2" />
             <circle cx="12" cy="5" r="2" />
@@ -74,18 +77,18 @@ const Icons = {
             <line x1="16" y1="16" x2="16" y2="16" />
         </svg>
     ),
-    Check: (props: any) => (
+    Check: (props: IconProps) => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" {...props}>
             <polyline points="20 6 9 17 4 12" />
         </svg>
     ),
-    Cross: (props: any) => (
+    Cross: (props: IconProps) => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" {...props}>
             <line x1="18" y1="6" x2="6" y2="18" />
             <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
     ),
-    Layers: (props: any) => (
+    Layers: (props: IconProps) => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
             <polygon points="12 2 2 7 12 12 22 7 12 2" />
             <polyline points="2 17 12 22 22 17" />
@@ -299,10 +302,10 @@ export default function AboutPage() {
                     </p>
                     <div className="mt-8">
                         <Link
-                            href="/docs"
+                            href="/docs/quick-start"
                             className="group inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-8 py-4 text-lg font-bold text-[var(--background)] transition-transform hover:scale-105"
                         >
-                            Read the documentation
+                            Get Started
                             <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
                         </Link>
                     </div>

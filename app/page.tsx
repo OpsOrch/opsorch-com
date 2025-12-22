@@ -102,6 +102,13 @@ export default function Home() {
               confidence. It brings every signal and every action point into one calm, cohesive surface where operators can move from detection to resolution without breaking flow.
             </p>
             <div className="flex flex-wrap gap-4">
+              <Link
+                href="/docs/quick-start"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#55cfd0] bg-[#10333a] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#14454e]"
+              >
+                Quick Start
+                <span aria-hidden>→</span>
+              </Link>
               <DemoCTA videoSrc={DEMO_URL} />
               <Link
                 href={GITHUB_ORG_URL}
@@ -173,7 +180,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap justify-center gap-3 pt-2">
               <Link
-                href="/docs"
+                href="/docs/quick-start"
                 className="inline-flex items-center gap-1 rounded-lg border border-[#55cfd0] bg-[#10333a] px-3 py-1.5 text-xs font-medium text-white transition hover:bg-[#14454e]"
               >
                 Quick Start Guide →
@@ -189,6 +196,12 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <div className="text-center pb-4">
+          <Link href="/about" className="text-sm text-slate-500 hover:text-[#72e0e0] transition">
+            About OpsOrch
+          </Link>
+        </div>
       </div>
       <script
         type="application/ld+json"
