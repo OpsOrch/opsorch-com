@@ -157,14 +157,20 @@ export default function CopilotPage() {
                         <ul className="list-disc pl-5 text-sm text-slate-400 mb-6 space-y-1">
                             <li>OpenAI GPT-4o / GPT-4 Turbo</li>
                             <li>Anthropic Claude 3.5 Sonnet</li>
+                            <li>Google Gemini 3.0 Flash</li>
                             <li>AWS Bedrock (Claude / Titan)</li>
                         </ul>
 
                         <h3 className="font-semibold text-white mb-2">Configuration</h3>
                         <CodeBlock language="bash">
                             {`# In your opsorch-copilot env or secrets:
-LLM_PROVIDER="openai" # or "anthropic", "bedrock"
+LLM_PROVIDER="openai" # or "anthropic", "gemini", "bedrock"
 OPENAI_API_KEY="sk-..." 
+
+# For Gemini:
+# LLM_PROVIDER="gemini"
+# GEMINI_API_KEY="your-api-key"
+# GEMINI_MODEL="gemini-3-flash-preview" # optional, this is the default
 
 # Optional: Specialized Model Selection
 LLM_MODEL_PLANNER="gpt-4o"
