@@ -103,6 +103,13 @@ export default function DocsPage() {
                         </p>
                     </Link>
 
+                    <Link href="/docs/building-with-adapters" className="group rounded-2xl border border-[#2c4c52] bg-[#0d1416]/50 p-6 transition hover:border-[#72e0e0] hover:bg-[#0d1416]">
+                        <h2 className="text-xl font-semibold text-white group-hover:text-[#72e0e0]">Building with Adapters</h2>
+                        <p className="mt-3 text-sm text-slate-400">
+                            Build OpsOrch with your adapter stack. Jira, Prometheus, PagerDuty, and more.
+                        </p>
+                    </Link>
+
                     <Link href="/docs/security" className="group rounded-2xl border border-[#2c4c52] bg-[#0d1416]/50 p-6 transition hover:border-[#72e0e0] hover:bg-[#0d1416]">
                         <h2 className="text-xl font-semibold text-white group-hover:text-[#72e0e0]">Security</h2>
                         <p className="mt-3 text-sm text-slate-400">

@@ -1,5 +1,6 @@
 
 import type { Metadata } from "next";
+import Link from "next/link";
 import CodeBlock from "../../components/code-block";
 
 const pageUrl = "https://opsorch.com/docs/installation";
@@ -216,6 +217,52 @@ stringData:
     }
 `}
             </CodeBlock>
+          </div>
+        </section>
+
+        {/* Building with Adapters */}
+        <section className="opsorch-card border-[#1f3c43] p-8">
+          <h2 className="text-2xl font-semibold text-white">4. Building with Your Adapter Stack</h2>
+          <p className="mt-4 text-slate-300">
+            OpsOrch Core is a minimal base image. Every organization adds the adapters they need
+            (Jira, Prometheus, PagerDuty, Elasticsearch, etc.) as plugin binaries. You can build
+            a custom image with your specific adapter stack bundled in.
+          </p>
+
+          <div className="mt-6 space-y-4">
+            <p className="text-slate-300">
+              <strong>Example:</strong> Building an image with Jira tickets, Prometheus metrics, and PagerDuty incidents:
+            </p>
+
+            <CodeBlock language="dockerfile">
+              {`FROM ghcr.io/opsorch/opsorch-core:v0.2.0
+WORKDIR /opt/opsorch
+
+# Add adapter plugins from releases
+ADD https://github.com/OpsOrch/opsorch-jira-adapter/releases/download/v0.1.0/ticketplugin-linux-amd64 ./plugins/ticketplugin
+ADD https://github.com/OpsOrch/opsorch-prometheus-adapter/releases/download/v0.1.0/metricplugin-linux-amd64 ./plugins/metricplugin
+ADD https://github.com/OpsOrch/opsorch-pagerduty-adapter/releases/download/v0.1.5/incidentplugin-linux-amd64 ./plugins/incidentplugin
+
+RUN chmod +x ./plugins/*
+
+ENV OPSORCH_TICKET_PLUGIN=/opt/opsorch/plugins/ticketplugin \\
+    OPSORCH_METRIC_PLUGIN=/opt/opsorch/plugins/metricplugin \\
+    OPSORCH_INCIDENT_PLUGIN=/opt/opsorch/plugins/incidentplugin`}
+            </CodeBlock>
+
+            <p className="text-slate-300 mt-4">
+              Then configure each adapter at deployment time via environment variables or Kubernetes Secrets.
+            </p>
+
+            <div className="mt-6 p-4 bg-[#0d1416] border border-[#2c4c52] rounded-lg">
+              <p className="text-sm text-slate-300">
+                <strong className="text-[#72e0e0]">→</strong> For complete examples, configuration reference for all adapters,
+                troubleshooting, and production best practices, see:{" "}
+                <Link href="/docs/building-with-adapters" className="text-[#72e0e0] hover:underline">
+                  Building with Your Adapter Stack
+                </Link>
+              </p>
+            </div>
           </div>
         </section>
 
