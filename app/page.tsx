@@ -70,19 +70,24 @@ const repositories = [
 
 const pillars = [
   {
-    title: "Observe",
-    body: "Aggregate telemetry from incidents, logs, metrics, and team ownership with shared context and deep links back to source systems.",
-    metric: "7+ data planes",
+    title: "Investigate",
+    body: "Bring incidents, logs, metrics, alerts, tickets, and deployments into one console with shared context.",
+    metric: "One place",
   },
   {
-    title: "Decide",
-    body: "Sort signal from noise, understand impact, and determine the right course of action before anything escalates.",
-    metric: "1 source of truth",
+    title: "Coordinate",
+    body: "Align people and steps with Plans and Runs, including manual checks, approvals, and clear guidance.",
+    metric: "Guided runs",
   },
   {
-    title: "Automate",
-    body: "Trigger service owners, create tickets, and kick off runbooks through adapter integrations and MCP tools.",
-    metric: "Minutes to action",
+    title: "Act",
+    body: "Work in your existing tools using Open in tool links while OpsOrch tracks progress.",
+    metric: "Provider-owned",
+  },
+  {
+    title: "Integrate",
+    body: "Enhance what you already use with unified navigation, provider deep links, and inspectable Copilot evidence.",
+    metric: "Plugs in",
   },
 ];
 
@@ -94,12 +99,12 @@ export default function Home() {
           <div className="flex-1 space-y-5">
             <div className="flex items-center gap-3">
               <Image src="/OpsOrch.png" alt="OpsOrch logo" width={56} height={56} className="rounded-2xl" priority />
-              <p className="opsorch-tag">Unified Ops Platform</p>
+              <p className="opsorch-tag">Operations Orchestrator</p>
             </div>
-            <h1 className="text-4xl font-semibold text-white md:text-5xl">Run resilient operations with OpsOrch</h1>
+            <h1 className="text-4xl font-semibold text-white md:text-5xl">One place to investigate and coordinate operations</h1>
             <p className="max-w-2xl text-lg text-slate-200">
-              OpsOrch stitches together telemetry, incident response, team ownership, and automation so teams can see, decide, and act with
-              confidence. It brings every signal and every action point into one calm, cohesive surface where operators can move from detection to resolution without breaking flow.
+              OpsOrch is an Operations Orchestrator: a single console for investigating incidents, logs, metrics, alerts, tickets, and
+              deployments, then coordinating action across your existing tools.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -123,7 +128,7 @@ export default function Home() {
           </div>
         </header>
 
-        <section className="opsorch-grid lg:grid-cols-3">
+        <section className="opsorch-grid lg:grid-cols-4">
           {pillars.map((pillar) => (
             <div key={pillar.title} className="opsorch-card border-[#1f3c43] p-6 transition hover:-translate-y-1">
               <p className="text-sm font-semibold text-[#72e0e0]">{pillar.metric}</p>

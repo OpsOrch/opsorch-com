@@ -7,7 +7,7 @@ const pageUrl = "https://opsorch.com/docs";
 export const metadata: Metadata = {
     title: "OpsOrch Documentation",
     description:
-        "Comprehensive documentation for OpsOrch: Quick Start, Architecture, Core Concepts, and API References.",
+        "Documentation for OpsOrch: core concepts, console usage, Copilot references, orchestration, and running locally.",
     alternates: {
         canonical: pageUrl,
     },
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         url: pageUrl,
         title: "OpsOrch Documentation",
         description:
-            "Dive into OpsOrch quick start guides, architecture overviews, and API references for adapters and automations.",
+            "Start with core concepts, then explore the console, Copilot references, orchestration, and integrations.",
     },
 };
 
@@ -29,7 +29,7 @@ export default function DocsPage() {
                         "@context": "https://schema.org",
                         "@type": "WebPage",
                         name: "OpsOrch Documentation",
-                        description: "Comprehensive documentation for OpsOrch: Quick Start, Architecture, Core Concepts, and API References.",
+                        description: "Documentation for OpsOrch: core concepts, console usage, Copilot references, orchestration, and running locally.",
                         url: pageUrl,
                     }),
                 }}
@@ -42,9 +42,21 @@ export default function DocsPage() {
                         OpsOrch Documentation
                     </h1>
                     <p className="mt-4 text-lg text-slate-300">
-                        Everything you need to integrate, extend, and operate with OpsOrch
+                        Practical guidance for running OpsOrch, understanding the core model, and connecting provider tools.
                     </p>
                 </header>
+
+                <section className="rounded-3xl border border-[#2c4c52] bg-[#0d1416]/50 p-6 text-slate-300">
+                    <h2 className="text-xl font-semibold text-white">Docs sections</h2>
+                    <ul className="mt-4 grid gap-3 text-sm md:grid-cols-2">
+                        <li>Core concepts: providers, capabilities, MCP</li>
+                        <li>Console: incidents, logs, metrics, alerts, tickets, deployments</li>
+                        <li>Copilot: references and evidence navigation</li>
+                        <li>Orchestration: Plans, Runs, manual steps</li>
+                        <li>Adapters and integrations</li>
+                        <li>Running locally and deploying</li>
+                    </ul>
+                </section>
 
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     <Link href="/docs/quick-start" className="group rounded-2xl border border-[#2c4c52] bg-[#0d1416]/50 p-6 transition hover:border-[#72e0e0] hover:bg-[#0d1416]">

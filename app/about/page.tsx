@@ -7,7 +7,7 @@ const pageUrl = "https://opsorch.com/about";
 export const metadata: Metadata = {
     title: "About OpsOrch",
     description:
-        "Understand the OpsOrch philosophy: unify fractured operations, introduce a safe control plane for AI, and treat ops as a substrate built for platform teams.",
+        "Why OpsOrch exists: unify investigation and coordination in one console while keeping execution in your existing tools.",
     alternates: {
         canonical: pageUrl,
     },
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         url: pageUrl,
         title: "About OpsOrch",
         description:
-            "Why OpsOrch exists, what problem it solves, and who it is built for across platform, SRE, and AI-ops teams.",
+            "Why OpsOrch exists, what it solves, and who it is built for across platform, SRE, and incident response teams.",
     },
 };
 
@@ -111,7 +111,7 @@ export default function AboutPage() {
                                 "@type": "AboutPage",
                                 name: "About OpsOrch",
                                 description:
-                                    "Details on OpsOrch's mission to unify incidents, logs, metrics, tickets, messaging, and services.",
+                                    "Details on OpsOrch's mission to unify investigation and coordination across operational tools.",
                                 url: pageUrl,
                                 isPartOf: {
                                     "@type": "WebSite",
@@ -131,12 +131,16 @@ export default function AboutPage() {
                         Our Mission
                     </p>
                     <h1 className="bg-gradient-to-br from-white via-white to-slate-400 bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-7xl">
-                        The Control Plane <br className="hidden sm:block" />
-                        for Operations
+                        The Operations <br className="hidden sm:block" />
+                        Orchestrator
                     </h1>
                     <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-slate-300">
-                        Orchestrate the systems you already run so humans, automation, and AI can work through the same typed
-                        interface without handing production access to another product.
+                        OpsOrch is a single console for investigating incidents, logs, metrics, alerts, tickets, and deployments,
+                        then coordinating action across your existing tools without replacing them.
+                    </p>
+                    <p className="mx-auto mt-4 max-w-2xl text-base text-slate-400">
+                        It complements observability and automation systems with unified navigation, deep links, and an inspectable Copilot
+                        experience that points to exactly where the evidence lives.
                     </p>
                 </div>
                 {/* Background glow effects */}
@@ -150,8 +154,8 @@ export default function AboutPage() {
                     <div className="mb-12 md:text-center">
                         <SectionHeading>Modern operations are fragmented</SectionHeading>
                         <SectionText className="mt-4 max-w-3xl md:mx-auto">
-                            Now teams are expected to bolt AI onto this mess. OpsOrch starts from this uncomfortable
-                            reality. No slogans. Just the truth of dispersed tools.
+                            Teams still jump between tools for incidents, metrics, logs, tickets, and deployments. OpsOrch starts
+                            from that reality and brings the work into one place.
                         </SectionText>
                     </div>
 
@@ -180,18 +184,18 @@ export default function AboutPage() {
                     <div className="space-y-6">
                         <SectionHeading>The missing control plane</SectionHeading>
                         <SectionText>
-                            The industry does not lack tools. It lacks a <span className="text-[var(--accent)] font-semibold">control plane</span>.
-                            There is no trustworthy layer that can reason across your stack with clear safety guarantees.
+                            The industry does not lack tools. It lacks a <span className="text-[var(--accent)] font-semibold">control plane</span>
+                            that connects them with shared context and clear boundaries.
                         </SectionText>
                         <SectionText>
                             Every system speaks a different language. Every workflow is stitched together with glue code.
-                            OpsOrch exists to make this missing layer explicit.
+                            OpsOrch exists to make coordination explicit without moving execution out of your providers.
                         </SectionText>
 
                         <div className="pt-4">
-                            <h3 className="text-lg font-semibold text-white">AI Needs:</h3>
+                            <h3 className="text-lg font-semibold text-white">Reliable assistance needs:</h3>
                             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                                {["Evidence, not guesses", "Boundaries, not keys", "Approvals, not blind acts", "Typed interfaces"].map((req) => (
+                                {["Evidence, not guesses", "Boundaries, not keys", "Approvals, not blind acts", "Traceable references"].map((req) => (
                                     <li key={req} className="flex items-center gap-2 text-slate-300">
                                         <Icons.Check className="h-5 w-5 text-[var(--accent)]" />
                                         <span>{req}</span>
@@ -233,14 +237,13 @@ export default function AboutPage() {
                 {/* Operations as Substrate */}
                 <section className="relative overflow-hidden rounded-3xl border border-[#23444b] bg-gradient-to-br from-[#0c1f24] to-[#0d1416] px-8 py-16 text-center shadow-2xl md:px-16">
                     <div className="relative z-10 mx-auto max-w-3xl">
-                        <h2 className="text-3xl font-bold text-[#72e0e0] md:text-5xl">Operations as a substrate</h2>
+                        <h2 className="text-3xl font-bold text-[#72e0e0] md:text-5xl">Operations as a shared layer</h2>
                         <SectionText className="mt-6">
-                            OpsOrch treats operations as a <span className="font-semibold text-white">substrate</span>, not a product surface.
-                            It is the layer where humans investigate and decide, automation executes, and AI assists through
-                            the same interfaces.
+                            OpsOrch treats operations as a shared layer, not another tool to replace your stack.
+                            It is where teams investigate and coordinate, while execution stays in provider systems.
                         </SectionText>
                         <div className="mt-10 flex flex-wrap justify-center gap-4">
-                            {["Typed Actions", "Auditable Interactions", "Composable Workflows"].map((tag) => (
+                            {["Shared Context", "Auditable Steps", "Composable Workflows"].map((tag) => (
                                 <span key={tag} className="rounded-full border border-slate-700 bg-slate-900/50 px-6 py-2 text-sm text-slate-300 backdrop-blur-sm">
                                     {tag}
                                 </span>
@@ -260,9 +263,9 @@ export default function AboutPage() {
                         </h3>
                         <ul className="mt-8 space-y-4">
                             {[
-                                "Platform engineering teams building robust internal tools",
-                                "SREs and infrastructure leads needing safety at scale",
-                                "Teams building AI-assisted operational systems",
+                                "Platform teams and SREs coordinating incidents and releases",
+                                "Incident response teams managing multi-system workflows",
+                                "Teams scaling their operational maturity without replacing tools",
                             ].map((item) => (
                                 <li key={item} className="flex items-start gap-3 text-lg font-medium text-slate-700">
                                     <Icons.Check className="mt-1 h-5 w-5 shrink-0 text-emerald-600" />
@@ -281,9 +284,9 @@ export default function AboutPage() {
                         </h3>
                         <ul className="mt-8 space-y-4">
                             {[
-                                "Plug-and-play SaaS replacements for your entire stack",
-                                "Teams unwilling to own their own automation logic",
-                                "Organizations without foundational operational rigor",
+                                "Teams looking for a full replacement of their providers",
+                                "Fully autonomous remediation without human checkpoints",
+                                "Organizations that are not ready to standardize workflows",
                             ].map((item) => (
                                 <li key={item} className="flex items-start gap-3 text-lg text-slate-400">
                                     <Icons.Cross className="mt-1 h-5 w-5 shrink-0 text-rose-500" />
@@ -296,16 +299,16 @@ export default function AboutPage() {
 
                 {/* CTA */}
                 <section className="text-center">
-                    <h2 className="text-3xl font-semibold text-white">Ready to take control?</h2>
+                    <h2 className="text-3xl font-semibold text-white">Ready to run OpsOrch?</h2>
                     <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-400">
-                        If today&rsquo;s tooling feels fragmented, unsafe, or incomplete, OpsOrch is the substrate built for that future.
+                        If today&rsquo;s tooling feels fragmented, OpsOrch gives teams one place to investigate and coordinate action.
                     </p>
                     <div className="mt-8">
                         <Link
                             href="/docs/quick-start"
                             className="group inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-8 py-4 text-lg font-bold text-[var(--background)] transition-transform hover:scale-105"
                         >
-                            Get Started
+                            Run locally
                             <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
                         </Link>
                     </div>
