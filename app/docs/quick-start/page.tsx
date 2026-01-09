@@ -333,6 +333,10 @@ docker compose up -d`}
                                 desc: "No data copying, just intelligent routing"
                             },
                             {
+                                title: "Shareable deep links preserve filters",
+                                desc: "Copy URLs to share the exact operational view"
+                            },
+                            {
                                 title: "No data was copied or re-stored",
                                 desc: "Live queries to your actual systems"
                             },

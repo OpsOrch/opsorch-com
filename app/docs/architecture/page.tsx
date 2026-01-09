@@ -134,6 +134,7 @@ export default function ArchitecturePage() {
                             <li>• Provider/plugin loading</li>
                             <li>• Secret management</li>
                             <li>• Zero data storage</li>
+                            <li>• Orchestration plans & runs</li>
                         </ul>
                     </div>
 
@@ -156,6 +157,7 @@ export default function ArchitecturePage() {
                             <li>• Multi-step reasoning</li>
                             <li>• Human-in-the-loop</li>
                             <li>• Evidence-based answers</li>
+                            <li>• Runbook recommendations</li>
                         </ul>
                     </div>
 
@@ -168,6 +170,7 @@ export default function ArchitecturePage() {
                             <li>• Service catalog & dependency mapping</li>
                             <li>• Team management & organizational structure</li>
                             <li>• AI-powered Copilot chat (Enterprise)</li>
+                            <li>• Runbook execution & step tracking</li>
                         </ul>
                     </div>
                 </div>
@@ -179,7 +182,7 @@ export default function ArchitecturePage() {
                             <div className="shrink-0 h-1.5 w-1.5 mt-2 rounded-full bg-[#72e0e0]"></div>
                             <div>
                                 <strong className="text-white">Single API Surface</strong>
-                                <p className="text-slate-400 mt-1">One unified API for incidents, alerts, timelines, logs, metrics, tickets, messaging, services, teams, and secrets.</p>
+                                <p className="text-slate-400 mt-1">One unified API for incidents, alerts, timelines, logs, metrics, tickets, messaging, services, teams, deployments, and orchestration.</p>
                             </div>
                         </li>
                         <li className="flex gap-4">
@@ -194,6 +197,20 @@ export default function ArchitecturePage() {
                             <div>
                                 <strong className="text-white">Zero Operational Data Storage</strong>
                                 <p className="text-slate-400 mt-1">OpsOrch Core does not store your operational data. It routes queries to your source-of-truth systems in real-time.</p>
+                            </div>
+                        </li>
+                        <li className="flex gap-4">
+                            <div className="shrink-0 h-1.5 w-1.5 mt-2 rounded-full bg-[#72e0e0]"></div>
+                            <div>
+                                <strong className="text-white">Deep-linkable Evidence</strong>
+                                <p className="text-slate-400 mt-1">Normalized resources carry provider URLs so UIs can jump directly to the original tool without copying data.</p>
+                            </div>
+                        </li>
+                        <li className="flex gap-4">
+                            <div className="shrink-0 h-1.5 w-1.5 mt-2 rounded-full bg-[#72e0e0]"></div>
+                            <div>
+                                <strong className="text-white">Runbook-first Orchestration</strong>
+                                <p className="text-slate-400 mt-1">Plans and runs stay in your workflow engine while OpsOrch surfaces execution state and manual steps.</p>
                             </div>
                         </li>
                         <li className="flex gap-4">

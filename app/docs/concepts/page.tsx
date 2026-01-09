@@ -6,14 +6,14 @@ const pageUrl = "https://opsorch.com/docs/concepts";
 
 export const metadata: Metadata = {
     title: "Core Concepts | OpsOrch Documentation",
-    description: "Understand the fundamental concepts of OpsOrch: Unified API, Adapters, QueryScope, and Structured Queries.",
+    description: "Understand the fundamental concepts of OpsOrch: Unified API, Adapters, QueryScope, Structured Queries, Deep Links, and Orchestration.",
     alternates: {
         canonical: pageUrl,
     },
     openGraph: {
         url: pageUrl,
         title: "Core Concepts | OpsOrch Documentation",
-        description: "Understand the fundamental concepts of OpsOrch: Unified API, Adapters, QueryScope, and Structured Queries.",
+        description: "Understand the fundamental concepts of OpsOrch: Unified API, Adapters, QueryScope, Structured Queries, Deep Links, and Orchestration.",
     },
 };
 
@@ -27,7 +27,7 @@ export default function ConceptsPage() {
                         "@context": "https://schema.org",
                         "@type": "TechArticle",
                         headline: "Core Concepts",
-                        description: "Understand the fundamental concepts of OpsOrch: Unified API, Adapters, QueryScope, and Structured Queries.",
+                        description: "Understand the fundamental concepts of OpsOrch: Unified API, Adapters, QueryScope, Structured Queries, Deep Links, and Orchestration.",
                         url: pageUrl,
                         author: {
                             "@type": "Organization",
@@ -53,8 +53,8 @@ export default function ConceptsPage() {
                         <div className="mb-6">
                             <h2 className="text-2xl font-semibold text-white">1. Unified API Layer</h2>
                             <p className="mt-4 text-slate-300">
-                                OpsOrch exposes unified REST APIs for incidents, logs, metrics, tickets, messaging, services, and teams.
-                                instead of typical GET list endpoints, OpsOrch uses a powerful <code className="text-[#72e0e0]">POST .../query</code> pattern
+                                OpsOrch exposes unified REST APIs for incidents, alerts, logs, metrics, tickets, messaging, services, teams, deployments, and orchestration.
+                                Instead of typical GET list endpoints, OpsOrch uses a powerful <code className="text-[#72e0e0]">POST .../query</code> pattern
                                 for all collections to support complex filtering.
                             </p>
                         </div>
@@ -204,6 +204,53 @@ export default function ConceptsPage() {
        "operator": "CONTAINS", 
        "value": "timeout" 
     }
+  ]
+}`}
+                            </CodeBlock>
+                        </div>
+                    </section>
+
+                    {/* Provider Deep Links */}
+                    <section className="opsorch-card p-8">
+                        <div className="mb-6">
+                            <h2 className="text-2xl font-semibold text-white">5. Provider Deep Links</h2>
+                            <p className="mt-4 text-slate-300">
+                                Normalized resources can carry optional <code className="text-[#72e0e0]">url</code> fields that point back to the source system.
+                                OpsOrch passes these through without modification so operators can jump directly to the vendor UI for details.
+                            </p>
+                        </div>
+
+                        <div className="rounded-xl border border-slate-700 bg-slate-900/50 p-6">
+                            <CodeBlock language="json">
+                                {`{
+  "id": "alert-891",
+  "title": "High error rate",
+  "status": "open",
+  "severity": "critical",
+  "url": "https://datadog.com/monitors/123"
+}`}
+                            </CodeBlock>
+                        </div>
+                    </section>
+
+                    {/* Orchestration */}
+                    <section className="opsorch-card p-8">
+                        <div className="mb-6">
+                            <h2 className="text-2xl font-semibold text-white">6. Orchestration: Plans and Runs</h2>
+                            <p className="mt-4 text-slate-300">
+                                Runbooks and workflows are treated as first-class operational data. OpsOrch exposes plans (templates) and runs (live executions),
+                                allowing clients to launch runs and complete manual steps without talking directly to the upstream system.
+                            </p>
+                        </div>
+
+                        <div className="rounded-xl border border-slate-700 bg-slate-900/50 p-6">
+                            <CodeBlock language="json">
+                                {`{
+  "id": "release-checklist",
+  "name": "Release Checklist",
+  "steps": [
+    { "id": "verify", "type": "verify", "title": "Check error budget" },
+    { "id": "approve", "type": "manual", "title": "Ops approval" }
   ]
 }`}
                             </CodeBlock>

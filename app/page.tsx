@@ -8,7 +8,7 @@ const DEMO_URL = "/opsorch-demo.mp4";
 const repositories = [
   {
     name: "opsorch-core",
-    description: "Stateless orchestration layer exposing unified incident, log, metric, ticket, and messaging APIs while loading adapters on demand.",
+    description: "Stateless orchestration layer exposing unified incident, log, metric, ticket, deployment, and runbook APIs while loading adapters on demand.",
     focus: "Runtime",
   },
   {
@@ -71,7 +71,7 @@ const repositories = [
 const pillars = [
   {
     title: "Observe",
-    body: "Aggregate telemetry from incidents, logs, metrics, and team ownership with shared context so responders see the whole picture immediately.",
+    body: "Aggregate telemetry from incidents, logs, metrics, and team ownership with shared context and deep links back to source systems.",
     metric: "7+ data planes",
   },
   {
@@ -81,7 +81,7 @@ const pillars = [
   },
   {
     title: "Automate",
-    body: "Trigger service owners, create tickets, and kick off remediation steps through adapter integrations and MCP tools.",
+    body: "Trigger service owners, create tickets, and kick off runbooks through adapter integrations and MCP tools.",
     metric: "Minutes to action",
   },
 ];

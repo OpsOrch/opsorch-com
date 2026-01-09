@@ -94,6 +94,20 @@ export default function ConsolePage() {
                             </ul>
                         </div>
 
+                        {/* Orchestration */}
+                        <div>
+                            <h3 className="text-lg font-semibold text-[#72e0e0]">Orchestration (Runbooks)</h3>
+                            <p className="text-sm text-slate-300 mt-1 mb-2">
+                                Browse operational runbooks, launch runs, and track step execution in one place.
+                            </p>
+                            <ul className="list-disc pl-5 text-sm text-slate-400">
+                                <li><strong>Plan Browser:</strong> Search runbooks by service, tags, or owner.</li>
+                                <li><strong>Run Tracking:</strong> Monitor active runs with real-time status.</li>
+                                <li><strong>Manual Steps:</strong> Complete approvals and checkpoints from the UI.</li>
+                                <li><strong>Mapped to:</strong> <code>OrchestrationAdapter</code> (OPSORCH_ORCHESTRATION_PROVIDER)</li>
+                            </ul>
+                        </div>
+
                         {/* Copilot */}
                         <div>
                             <h3 className="text-lg font-semibold text-[#72e0e0]">Copilot (Enterprise)</h3>
@@ -103,9 +117,23 @@ export default function ConsolePage() {
                             <ul className="list-disc pl-5 text-sm text-slate-400">
                                 <li><strong>Context Aware:</strong> Knows what page you are looking at.</li>
                                 <li><strong>History:</strong> Remembers previous queries in the session.</li>
+                                <li><strong>Action Links:</strong> Suggests runbooks and deep links to filtered views.</li>
                             </ul>
                         </div>
                     </div>
+                </section>
+
+                <section className="opsorch-card border-[#1f3c43] p-8">
+                    <h2 className="text-2xl font-semibold text-white">Deep Links &amp; Shareable Views</h2>
+                    <p className="mt-4 text-slate-300">
+                        Every primary view supports URL-based filtering so you can share the exact slice of data with your team.
+                        Copilot responses and reference panels attach these filters automatically.
+                    </p>
+                    <ul className="mt-6 list-disc pl-5 text-sm text-slate-400">
+                        <li><strong>URL Filters:</strong> Service, environment, status, and query parameters are encoded in the URL.</li>
+                        <li><strong>Evidence Links:</strong> Click through to the provider UI using the normalized deep links.</li>
+                        <li><strong>Runbook Links:</strong> Copilot action cards jump straight into the plan detail page.</li>
+                    </ul>
                 </section>
 
                 <section className="opsorch-card border-[#1f3c43] p-8">

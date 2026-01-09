@@ -119,9 +119,35 @@ export default function CopilotPage() {
                         </li>
                         <li className="flex gap-3">
                             <span className="text-[#72e0e0]">•</span>
+                            <span><strong>Runbook Discovery:</strong> Proactively suggest orchestration plans related to incidents or services.</span>
+                        </li>
+                        <li className="flex gap-3">
+                            <span className="text-[#72e0e0]">•</span>
                             <span><strong>Answer with Evidence:</strong> Provides citations and deep links to source data in the Console.</span>
                         </li>
                     </ul>
+                </section>
+
+                <section className="opsorch-card border-[#1f3c43] p-8">
+                    <h2 className="text-2xl font-semibold text-white">Deep Links &amp; Runbook Actions</h2>
+                    <p className="mt-4 text-slate-300">
+                        Copilot responses include structured references that power Console deep links and action cards.
+                        Runbook suggestions link directly to orchestration plans so operators can launch runs without hunting.
+                    </p>
+                    <div className="mt-6">
+                        <CodeBlock language="json">
+                            {`{
+  "actions": [
+    { "type": "orchestration_plan", "id": "db-failover", "name": "DB Failover", "reason": "Applies to the current outage." }
+  ],
+  "references": {
+    "incidents": ["inc-404"],
+    "services": ["payments-api"],
+    "orchestrationPlans": ["db-failover"]
+  }
+}`}
+                        </CodeBlock>
+                    </div>
                 </section>
 
                 <section className="opsorch-card border-[#1f3c43] p-8">
