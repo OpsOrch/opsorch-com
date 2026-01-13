@@ -1,13 +1,11 @@
-import Link from "next/link";
 import type { Metadata } from "next";
-import type { SVGProps } from "react";
 
 const pageUrl = "https://opsorch.com/about";
 
 export const metadata: Metadata = {
     title: "About OpsOrch",
     description:
-        "Why OpsOrch exists: unify investigation and coordination in one console while keeping execution in your existing tools.",
+        "Why OpsOrch exists: an operational control plane for engineering teams.",
     alternates: {
         canonical: pageUrl,
     },
@@ -15,7 +13,7 @@ export const metadata: Metadata = {
         url: pageUrl,
         title: "About OpsOrch",
         description:
-            "Why OpsOrch exists, what it solves, and who it is built for across platform, SRE, and incident response teams.",
+            "Why OpsOrch exists, what it focuses on, and the operational workflows it supports.",
     },
 };
 
@@ -26,76 +24,6 @@ function SectionHeading({ children, className = "" }: { children: React.ReactNod
 function SectionText({ children, className = "" }: { children: React.ReactNode; className?: string }) {
     return <p className={`text-lg leading-relaxed text-slate-300 ${className}`}>{children}</p>;
 }
-
-// Inline SVGs for lightweight visuals
-type IconProps = SVGProps<SVGSVGElement>;
-
-const Icons = {
-    PagerDuty: (props: IconProps) => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
-            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-            <line x1="12" y1="9" x2="12" y2="13" />
-            <line x1="12" y1="17" x2="12.01" y2="17" />
-        </svg>
-    ),
-    Chart: (props: IconProps) => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
-            <line x1="18" y1="20" x2="18" y2="10" />
-            <line x1="12" y1="20" x2="12" y2="4" />
-            <line x1="6" y1="20" x2="6" y2="14" />
-        </svg>
-    ),
-    Logs: (props: IconProps) => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
-            <line x1="8" y1="6" x2="21" y2="6" />
-            <line x1="8" y1="12" x2="21" y2="12" />
-            <line x1="8" y1="18" x2="21" y2="18" />
-            <line x1="3" y1="6" x2="3.01" y2="6" />
-            <line x1="3" y1="12" x2="3.01" y2="12" />
-            <line x1="3" y1="18" x2="3.01" y2="18" />
-        </svg>
-    ),
-    Ticket: (props: IconProps) => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-            <line x1="9" y1="3" x2="9" y2="21" />
-            <path d="M14 9h4" />
-            <path d="M14 15h4" />
-        </svg>
-    ),
-    Message: (props: IconProps) => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-        </svg>
-    ),
-    Robot: (props: IconProps) => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
-            <rect x="3" y="11" width="18" height="10" rx="2" />
-            <circle cx="12" cy="5" r="2" />
-            <path d="M12 7v4" />
-            <line x1="8" y1="16" x2="8" y2="16" />
-            <line x1="16" y1="16" x2="16" y2="16" />
-        </svg>
-    ),
-    Check: (props: IconProps) => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" {...props}>
-            <polyline points="20 6 9 17 4 12" />
-        </svg>
-    ),
-    Cross: (props: IconProps) => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" {...props}>
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-        </svg>
-    ),
-    Layers: (props: IconProps) => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
-            <polygon points="12 2 2 7 12 12 22 7 12 2" />
-            <polyline points="2 17 12 22 22 17" />
-            <polyline points="2 12 12 17 22 12" />
-        </svg>
-    ),
-};
 
 export default function AboutPage() {
     return (
@@ -125,193 +53,156 @@ export default function AboutPage() {
             />
 
             {/* Hero Section */}
-            <div className="relative overflow-hidden px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
-                <div className="relative mx-auto max-w-5xl text-center">
+            <div className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
+                <div className="relative mx-auto max-w-4xl text-center">
                     <p className="opsorch-tag mx-auto mb-6 w-max rounded-full border border-[var(--accent)]/30 bg-[var(--accent)]/10 px-4 py-1.5 backdrop-blur-md">
-                        Our Mission
+                        About OpsOrch
                     </p>
-                    <h1 className="bg-gradient-to-br from-white via-white to-slate-400 bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-7xl">
-                        The Operations <br className="hidden sm:block" />
-                        Orchestrator
-                    </h1>
-                    <p className="mx-auto mt-8 max-w-2xl text-xl leading-relaxed text-slate-300">
-                        OpsOrch is a single console for investigating incidents, logs, metrics, alerts, tickets, and deployments,
-                        then coordinating action across your existing tools without replacing them.
-                    </p>
-                    <p className="mx-auto mt-4 max-w-2xl text-base text-slate-400">
-                        It complements observability and automation systems with unified navigation, deep links, and an inspectable Copilot
-                        experience that points to exactly where the evidence lives.
+                    <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">About OpsOrch</h1>
+                    <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-slate-300">
+                        OpsOrch is an operational control plane for engineering teams.
                     </p>
                 </div>
-                {/* Background glow effects */}
-                <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 opacity-20 blur-[100px]" style={{ background: 'radial-gradient(circle, var(--accent) 0%, transparent 70%)' }}></div>
+                <div
+                    className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 opacity-20 blur-[100px]"
+                    style={{ background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)" }}
+                ></div>
             </div>
 
-            <div className="mx-auto max-w-6xl space-y-24 px-4 pb-32 sm:px-6 lg:px-10">
+            <div className="mx-auto max-w-5xl space-y-12 px-4 pb-24 sm:px-6 lg:px-10">
+                <section className="opsorch-card border-[#1f3c43] p-8">
+                    <SectionText>
+                        Modern operations span many systems: observability tools, ticketing systems, deployment platforms, and communication
+                        channels. While these tools are individually powerful, operational work rarely fits cleanly inside any single one of
+                        them.
+                    </SectionText>
+                    <SectionText className="text-slate-200">
+                        OpsOrch exists to coordinate how these tools are used together.
+                    </SectionText>
+                </section>
 
-                {/* Fragmented Reality Section (Bento Grid) */}
-                <section>
-                    <div className="mb-12 md:text-center">
-                        <SectionHeading>Modern operations are fragmented</SectionHeading>
-                        <SectionText className="mt-4 max-w-3xl md:mx-auto">
-                            Teams still jump between tools for incidents, metrics, logs, tickets, and deployments. OpsOrch starts
-                            from that reality and brings the work into one place.
-                        </SectionText>
-                    </div>
-
-                    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                        {[
-                            { title: "Incidents", desc: "Sit isolated in PagerDuty", icon: Icons.PagerDuty, color: "text-red-400" },
-                            { title: "Metrics", desc: "Live in Prometheus or Datadog", icon: Icons.Chart, color: "text-purple-400" },
-                            { title: "Logs", desc: "Queried somewhere else entirely", icon: Icons.Logs, color: "text-blue-400" },
-                            { title: "Tickets", desc: "Exist in Jira, disconnected", icon: Icons.Ticket, color: "text-blue-500" },
-                            { title: "Decisions", desc: "Coordination happens in Slack", icon: Icons.Message, color: "text-green-400" },
-                            { title: "Automation", desc: "Hidden inside brittle scripts", icon: Icons.Robot, color: "text-orange-400" },
-                        ].map((item) => (
-                            <div key={item.title} className="group relative overflow-hidden rounded-2xl border border-[var(--border-muted)] bg-[var(--surface-highlight)] p-6 transition-all hover:border-[var(--accent)] hover:shadow-lg">
-                                <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-black/40 ${item.color}`}>
-                                    <item.icon className="h-6 w-6" />
+                <section className="opsorch-card border-[#1f3c43] p-8">
+                    <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start">
+                        <div className="space-y-4">
+                            <SectionHeading>What we focus on</SectionHeading>
+                            <SectionText>OpsOrch is designed for operational workflows that require context, judgment, and traceability.</SectionText>
+                        </div>
+                        <div className="grid gap-4 sm:grid-cols-2">
+                            {[
+                                "Production releases and verification",
+                                "Incident investigation and response",
+                                "Operational checks and recurring procedures",
+                                "Post-incident analysis and audits",
+                            ].map((item) => (
+                                <div key={item} className="rounded-2xl border border-[#1f3c43] bg-[#0d1518] px-5 py-4 text-slate-300">
+                                    {item}
                                 </div>
-                                <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-                                <p className="mt-2 text-slate-400">{item.desc}</p>
+                            ))}
+                        </div>
+                    </div>
+                    <SectionText className="mt-6">
+                        These workflows differ in purpose, but they share the same underlying problem: decisions must be made across
+                        multiple systems, often under time pressure, and must be explainable afterward.
+                    </SectionText>
+                </section>
+
+                <section className="opsorch-card border-[#2c4c52] p-8">
+                    <div className="space-y-4">
+                        <SectionHeading>How OpsOrch approaches the problem</SectionHeading>
+                        <SectionText>OpsOrch treats operational work as a first-class system, not as ad-hoc coordination between tools.</SectionText>
+                    </div>
+                    <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                        {[
+                            "A provider-agnostic schema for operational data",
+                            "An orchestration layer for workflows, runbooks, and approvals",
+                            "Explicit boundaries between observation, reasoning, and action",
+                        ].map((item) => (
+                            <div key={item} className="rounded-2xl border border-[#1f3c43] bg-[#0b1113] px-5 py-4 text-slate-300">
+                                {item}
                             </div>
                         ))}
                     </div>
+                    <SectionText className="mt-6">
+                        This allows teams to structure operational processes without centralizing or duplicating their data.
+                    </SectionText>
                 </section>
 
-                {/* The Missing Control Plane */}
-                <section className="grid items-center gap-12 lg:grid-cols-2">
-                    <div className="space-y-6">
-                        <SectionHeading>The missing control plane</SectionHeading>
-                        <SectionText>
-                            The industry does not lack tools. It lacks a <span className="text-[var(--accent)] font-semibold">control plane</span>
-                            that connects them with shared context and clear boundaries.
-                        </SectionText>
-                        <SectionText>
-                            Every system speaks a different language. Every workflow is stitched together with glue code.
-                            OpsOrch exists to make coordination explicit without moving execution out of your providers.
-                        </SectionText>
-
-                        <div className="pt-4">
-                            <h3 className="text-lg font-semibold text-white">Reliable assistance needs:</h3>
-                            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                                {["Evidence, not guesses", "Boundaries, not keys", "Approvals, not blind acts", "Traceable references"].map((req) => (
-                                    <li key={req} className="flex items-center gap-2 text-slate-300">
-                                        <Icons.Check className="h-5 w-5 text-[var(--accent)]" />
-                                        <span>{req}</span>
-                                    </li>
-                                ))}
-                            </ul>
+                <section className="opsorch-card border-[#1f3c43] p-8">
+                    <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
+                        <div className="space-y-4">
+                            <SectionHeading>On automation and AI</SectionHeading>
+                            <SectionText>OpsOrch uses AI to assist reasoning, not to bypass responsibility.</SectionText>
+                        </div>
+                        <div className="rounded-2xl border border-[#1f3c43] bg-[#0d1518] p-5 text-slate-300">
+                            <p>
+                                Copilot helps correlate signals, surface evidence, and suggest next steps. All conclusions are inspectable,
+                                and all actions flow through explicit workflows with approvals and checkpoints.
+                            </p>
                         </div>
                     </div>
-                    <div className="relative rounded-3xl border border-[var(--border-strong)] bg-gradient-to-b from-[var(--background-secondary)] to-[var(--background)] p-8 shadow-2xl">
-                        {/* Abstract Visual of the Control Plane */}
-                        <div className="flex flex-col items-center justify-center space-y-4">
-                            <div className="flex w-full justify-between gap-4 px-4 opacity-50">
-                                <Icons.PagerDuty className="h-10 w-10 text-slate-600" />
-                                <Icons.Chart className="h-10 w-10 text-slate-600" />
-                                <Icons.Logs className="h-10 w-10 text-slate-600" />
-                            </div>
-                            <div className="h-8 w-px border-l border-dashed border-slate-600"></div>
+                    <SectionText className="mt-6">OpsOrch does not execute uncontrolled changes or operate as a black box.</SectionText>
+                </section>
 
-                            {/* The Hub */}
-                            <div className="relative z-10 flex h-32 w-full max-w-xs items-center justify-center rounded-xl border border-[var(--accent)] bg-[var(--surface)] text-center shadow-[0_0_30px_rgba(114,224,224,0.15)]">
-                                <div>
-                                    <div className="mx-auto mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-[var(--accent)] text-[var(--background)]">
-                                        <Icons.Layers className="h-6 w-6" />
+                <section className="opsorch-card border-[#2c4c52] p-8">
+                    <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+                        <div className="space-y-4">
+                            <p className="opsorch-tag">Open Source</p>
+                            <SectionHeading>Open source and commercial model</SectionHeading>
+                            <SectionText>OpsOrch is built in the open.</SectionText>
+                            <SectionText>
+                                Core schemas, orchestration primitives, and adapter frameworks are open source and intended to be extended by
+                                the community.
+                            </SectionText>
+                        </div>
+                        <div className="rounded-2xl border border-[#1f3c43] bg-[#0d1518] p-6">
+                            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">Commercial focus</p>
+                            <div className="mt-4 space-y-3 text-slate-300">
+                                {[
+                                    "Governance and access controls",
+                                    "Copilot runtime and enterprise deployment",
+                                    "Operational safety features for larger teams",
+                                ].map((item) => (
+                                    <div key={item} className="rounded-xl border border-[#1f3c43] bg-[#0b1113] px-4 py-3">
+                                        {item}
                                     </div>
-                                    <span className="font-bold text-white">OpsOrch Control Plane</span>
-                                </div>
-                            </div>
-
-                            <div className="h-8 w-px border-l border-dashed border-slate-600"></div>
-                            <div className="flex gap-8 text-slate-300">
-                                <span className="rounded bg-slate-800 px-3 py-1 text-sm">Validates</span>
-                                <span className="rounded bg-slate-800 px-3 py-1 text-sm">Logs</span>
-                                <span className="rounded bg-slate-800 px-3 py-1 text-sm">Routes</span>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </section>
 
-                {/* Operations as Substrate */}
-                <section className="relative overflow-hidden rounded-3xl border border-[#23444b] bg-gradient-to-br from-[#0c1f24] to-[#0d1416] px-8 py-16 text-center shadow-2xl md:px-16">
-                    <div className="relative z-10 mx-auto max-w-3xl">
-                        <h2 className="text-3xl font-bold text-[#72e0e0] md:text-5xl">Operations as a shared layer</h2>
-                        <SectionText className="mt-6">
-                            OpsOrch treats operations as a shared layer, not another tool to replace your stack.
-                            It is where teams investigate and coordinate, while execution stays in provider systems.
-                        </SectionText>
-                        <div className="mt-10 flex flex-wrap justify-center gap-4">
-                            {["Shared Context", "Auditable Steps", "Composable Workflows"].map((tag) => (
-                                <span key={tag} className="rounded-full border border-slate-700 bg-slate-900/50 px-6 py-2 text-sm text-slate-300 backdrop-blur-sm">
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
+                <section className="opsorch-card border-[#1f3c43] p-8">
+                    <SectionHeading>Who OpsOrch is for</SectionHeading>
+                    <SectionText>OpsOrch is built for teams that:</SectionText>
+                    <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                        {[
+                            "Operate production systems at meaningful scale",
+                            "Care about reliability and decision quality",
+                            "Want stronger operational discipline without replacing existing tools",
+                        ].map((item) => (
+                            <div key={item} className="rounded-2xl border border-[#1f3c43] bg-[#0b1113] px-5 py-4 text-slate-300">
+                                {item}
+                            </div>
+                        ))}
                     </div>
+                    <SectionText className="mt-6">
+                        It is not designed to replace observability platforms, ticketing systems, or deployment tools.
+                    </SectionText>
                 </section>
 
-                {/* Built for / Not built for */}
-                <section className="grid gap-8 lg:grid-cols-2">
-                    <div className="rounded-3xl border border-[var(--border-muted)] bg-[var(--surface-card)] p-8 text-[var(--text-dark)] shadow-xl">
-                        <h3 className="flex items-center gap-3 text-2xl font-bold text-slate-900">
-                            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
-                                <Icons.Check className="h-5 w-5" />
+                <section className="opsorch-card border-[#2c4c52] p-8">
+                    <SectionHeading>Our philosophy</SectionHeading>
+                    <SectionText>Operational work should be:</SectionText>
+                    <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                        {["Explicit rather than implicit", "Traceable rather than anecdotal", "Assistive rather than autonomous"].map((item) => (
+                            <div key={item} className="rounded-2xl border border-[#1f3c43] bg-[#0d1518] px-5 py-4 text-slate-300">
+                                {item}
                             </div>
-                            Who OpsOrch is for
-                        </h3>
-                        <ul className="mt-8 space-y-4">
-                            {[
-                                "Platform teams and SREs coordinating incidents and releases",
-                                "Incident response teams managing multi-system workflows",
-                                "Teams scaling their operational maturity without replacing tools",
-                            ].map((item) => (
-                                <li key={item} className="flex items-start gap-3 text-lg font-medium text-slate-700">
-                                    <Icons.Check className="mt-1 h-5 w-5 shrink-0 text-emerald-600" />
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
+                        ))}
                     </div>
-
-                    <div className="rounded-3xl border border-slate-800 bg-slate-900/50 p-8 text-slate-400">
-                        <h3 className="flex items-center gap-3 text-2xl font-bold text-slate-200">
-                            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-rose-500/10 text-rose-500">
-                                <Icons.Cross className="h-5 w-5" />
-                            </div>
-                            Not built for
-                        </h3>
-                        <ul className="mt-8 space-y-4">
-                            {[
-                                "Teams looking for a full replacement of their providers",
-                                "Fully autonomous remediation without human checkpoints",
-                                "Organizations that are not ready to standardize workflows",
-                            ].map((item) => (
-                                <li key={item} className="flex items-start gap-3 text-lg text-slate-400">
-                                    <Icons.Cross className="mt-1 h-5 w-5 shrink-0 text-rose-500" />
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </section>
-
-                {/* CTA */}
-                <section className="text-center">
-                    <h2 className="text-3xl font-semibold text-white">Ready to run OpsOrch?</h2>
-                    <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-400">
-                        If today&rsquo;s tooling feels fragmented, OpsOrch gives teams one place to investigate and coordinate action.
-                    </p>
-                    <div className="mt-8">
-                        <Link
-                            href="/docs/quick-start"
-                            className="group inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-8 py-4 text-lg font-bold text-[var(--background)] transition-transform hover:scale-105"
-                        >
-                            Run locally
-                            <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
-                        </Link>
-                    </div>
+                    <SectionText className="mt-6">
+                        OpsOrch is an attempt to encode these principles into a system teams can build on.
+                    </SectionText>
                 </section>
             </div>
         </div>

@@ -5,92 +5,6 @@ import DemoCTA from "./components/demo-cta";
 const GITHUB_ORG_URL = "https://github.com/OpsOrch";
 const DEMO_URL = "/opsorch-demo.mp4";
 
-const repositories = [
-  {
-    name: "opsorch-core",
-    description: "Stateless orchestration layer exposing unified incident, log, metric, ticket, deployment, and runbook APIs while loading adapters on demand.",
-    focus: "Runtime",
-  },
-  {
-    name: "opsorch-adapter",
-    description: "Adapter starter kit with sample providers, plugin entrypoints, and guidance for wiring any external system into OpsOrch.",
-    focus: "Starter",
-  },
-  {
-    name: "opsorch-mock-adapters",
-    description: "In-process mock providers that seed incidents, logs, metrics, tickets, messaging, services, and secrets for demos and tests.",
-    focus: "Mocks",
-  },
-  {
-    name: "opsorch-github-adapter",
-    description: "Production-ready GitHub adapter that integrates with GitHub Issues for ticket management, GitHub Actions for deployment tracking, and GitHub Teams for team management.",
-    focus: "GitHub",
-  },
-  {
-    name: "opsorch-pagerduty-adapter",
-    description: "Production-ready PagerDuty adapter that integrates with PagerDuty REST API v2 for creating, querying, and managing incidents, and discovering services.",
-    focus: "PagerDuty",
-  },
-  {
-    name: "opsorch-datadog-adapter",
-    description: "Production-ready Datadog adapter using official Go SDK v2 for metrics, logs, monitors, incidents, and service catalog integration.",
-    focus: "Datadog",
-  },
-  {
-    name: "opsorch-jira-adapter",
-    description: "Production-ready Jira ticket adapter that integrates with Atlassian Jira REST API v3 for creating, querying, and updating issues.",
-    focus: "Jira",
-  },
-  {
-    name: "opsorch-prometheus-adapter",
-    description: "Metric adapter that integrates with Prometheus for querying metrics using PromQL and discovering available metrics.",
-    focus: "Prometheus",
-  },
-  {
-    name: "opsorch-slack-adapter",
-    description: "Messaging adapter that sends rich messages to Slack channels using Block Kit with Markdown support.",
-    focus: "Slack",
-  },
-  {
-    name: "opsorch-elastic-adapter",
-    description: "Log adapter that integrates with Elasticsearch for querying logs with full-text search and structured filtering.",
-    focus: "Elastic",
-  },
-  {
-    name: "opsorch-mcp",
-    description: "Model Context Protocol server that exposes OpsOrch Core HTTP APIs as MCP tools for agents and IDE copilots.",
-    focus: "MCP",
-  },
-  {
-    name: "opsorch-console",
-    description: "Modern Next.js operator UI with OSS and Enterprise editions. Unified interface for incidents, logs, metrics, services, and AI-powered assistance.",
-    focus: "Console",
-  },
-];
-
-const pillars = [
-  {
-    title: "Investigate",
-    body: "Bring incidents, logs, metrics, alerts, tickets, and deployments into one console with shared context.",
-    metric: "One place",
-  },
-  {
-    title: "Coordinate",
-    body: "Align people and steps with Plans and Runs, including manual checks, approvals, and clear guidance.",
-    metric: "Guided runs",
-  },
-  {
-    title: "Act",
-    body: "Work in your existing tools using Open in tool links while OpsOrch tracks progress.",
-    metric: "Provider-owned",
-  },
-  {
-    title: "Integrate",
-    body: "Enhance what you already use with unified navigation, provider deep links, and inspectable Copilot evidence.",
-    metric: "Plugs in",
-  },
-];
-
 export default function Home() {
   return (
     <div className="min-h-screen px-4 py-12 sm:px-6 lg:px-10">
@@ -101,12 +15,13 @@ export default function Home() {
               <Image src="/OpsOrch.png" alt="OpsOrch logo" width={56} height={56} className="rounded-2xl" priority />
               <p className="opsorch-tag">Operations Orchestrator</p>
             </div>
-            <h1 className="text-4xl font-semibold text-white md:text-5xl">One place to investigate and coordinate operations</h1>
+            <h1 className="text-4xl font-semibold text-white md:text-5xl">The operational control plane for modern engineering teams</h1>
             <p className="max-w-2xl text-lg text-slate-200">
-              OpsOrch is an Operations Orchestrator: a single console for investigating incidents, logs, metrics, alerts, tickets, and
-              deployments, then coordinating action across your existing tools.
+              Coordinate releases, incidents, and operational workflows across your existing tools - with context, approvals, and
+              traceability.
             </p>
             <div className="flex flex-wrap gap-4">
+              <DemoCTA videoSrc={DEMO_URL} label="Watch the OpsOrch demo" />
               <Link
                 href="/docs/quick-start"
                 className="inline-flex items-center gap-2 rounded-2xl border border-[#55cfd0] bg-[#10333a] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#14454e]"
@@ -114,89 +29,116 @@ export default function Home() {
                 Quick Start
                 <span aria-hidden>→</span>
               </Link>
-              <DemoCTA videoSrc={DEMO_URL} />
               <Link
                 href={GITHUB_ORG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-2xl border border-[#55cfd0] bg-[#10333a] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#14454e]"
               >
-                Visit GitHub Org
+                View on GitHub
                 <span aria-hidden>↗</span>
               </Link>
             </div>
+            <p className="text-sm text-slate-400">Runs locally. No production credentials required.</p>
           </div>
         </header>
 
-        <section className="opsorch-grid lg:grid-cols-4">
-          {pillars.map((pillar) => (
-            <div key={pillar.title} className="opsorch-card border-[#1f3c43] p-6 transition hover:-translate-y-1">
-              <p className="text-sm font-semibold text-[#72e0e0]">{pillar.metric}</p>
-              <h2 className="mt-3 text-2xl font-semibold text-white">{pillar.title}</h2>
-              <p className="mt-3 text-sm text-slate-300">{pillar.body}</p>
+        <section className="opsorch-card border-[#1f3c43] p-8">
+          <div className="max-w-3xl space-y-3">
+            <p className="opsorch-tag">What It Does</p>
+            <h2 className="text-3xl font-semibold text-white">Ops work doesn&apos;t live in one tool</h2>
+            <p className="text-base text-slate-300">
+              Releases, incidents, investigations, and routine checks all require decisions across multiple systems. OpsOrch coordinates
+              these workflows without replacing the tools you already use.
+            </p>
+          </div>
+        </section>
+
+        <section className="opsorch-card border-[#2c4c52] p-8">
+          <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
+            <div className="space-y-2 text-base text-slate-200">
+              <p>Signals (logs / metrics / alerts)</p>
+              <p aria-hidden className="text-2xl text-[#72e0e0]">
+                ↓
+              </p>
+              <p className="text-lg font-semibold text-white">OpsOrch (context + decisions)</p>
+              <p aria-hidden className="text-2xl text-[#72e0e0]">
+                ↓
+              </p>
+              <p>Actions (runbooks / approvals)</p>
+              <p aria-hidden className="text-2xl text-[#72e0e0]">
+                ↓
+              </p>
+              <p>Back to tools (Grafana, Datadog, Jira, Argo)</p>
             </div>
-          ))}
+            <p className="text-sm font-semibold text-slate-400">One control plane. Many tools.</p>
+          </div>
+        </section>
+
+        <section className="opsorch-card border-[#1f3c43] p-8">
+          <div className="max-w-3xl space-y-4">
+            <p className="opsorch-tag">Designed For Real Work</p>
+            <h2 className="text-3xl font-semibold text-white">Designed for real operational work</h2>
+            <ul className="space-y-2 text-base text-slate-300">
+              <li>Default views load with real data</li>
+              <li>Copilot answers are inspectable and traceable</li>
+              <li>Actions run through explicit workflows, not blind automation</li>
+            </ul>
+          </div>
+        </section>
+
+        <section className="opsorch-card border-[#2c4c52] p-8">
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+            <div className="space-y-4">
+              <p className="opsorch-tag">Example</p>
+              <h2 className="text-3xl font-semibold text-white">A typical flow</h2>
+              <p className="text-lg text-slate-200">&quot;Why did latency spike after the last change?&quot;</p>
+              <div className="space-y-2 text-base text-slate-300">
+                <p>Copilot correlates signals and shows evidence</p>
+                <p>A vetted runbook is suggested</p>
+                <p>The action runs with approvals and checkpoints</p>
+              </div>
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-[#1f3c43] bg-[#0b1113]">
+              <Image
+                src="/opsorch-copilot-screen.jpg"
+                alt="OpsOrch Copilot view showing correlated signals and recommended action"
+                width={960}
+                height={640}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
         </section>
 
         <section className="opsorch-card opsorch-card--light p-8">
-          <div className="flex flex-col gap-3 border-b border-black/10 pb-6 text-slate-800 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="opsorch-tag text-[#3d8f92]">GitHub</p>
-              <h2 className="text-3xl font-semibold text-slate-900">Explore the OpsOrch repositories</h2>
-              <p className="text-sm text-slate-600">Everything is open on GitHub-adapt the stack to your own operations.</p>
-            </div>
-            <Link
-              href={GITHUB_ORG_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-2xl border border-[#1f3c43]/20 bg-white/70 px-4 py-2 text-sm font-semibold text-[#0f1c20] shadow-sm transition hover:bg-white"
-            >
-              github.com/OpsOrch
-            </Link>
-          </div>
-
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {repositories.map((repo) => (
-              <Link
-                key={repo.name}
-                href={`${GITHUB_ORG_URL}/${repo.name}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col gap-3 rounded-2xl border border-black/10 bg-white/60 px-5 py-4 text-left text-slate-900 shadow-sm transition hover:-translate-y-1 hover:border-[#3d8f92] hover:bg-white"
-              >
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold text-slate-900">{repo.name}</h3>
-                  <span className="rounded-full border border-[#3d8f92] bg-[#e2f8f8] px-3 py-1 text-xs font-semibold text-[#0f1c20]">
-                    {repo.focus}
-                  </span>
-                </div>
-                <p className="text-sm text-slate-600">{repo.description}</p>
-                <span className="opsorch-link text-sm text-[#0f3b42]">Open on GitHub ↗</span>
+          <div className="max-w-3xl space-y-3">
+            <p className="opsorch-tag text-[#3d8f92]">Open</p>
+            <h2 className="text-3xl font-semibold text-slate-900">Open by default</h2>
+            <p className="text-base text-slate-700">
+              OpsOrch is built in the open. Core schemas and orchestration are open source. Enterprise features add governance, Copilot
+              runtime, and controls for larger teams.{" "}
+              <Link href={GITHUB_ORG_URL} target="_blank" rel="noopener noreferrer" className="opsorch-link text-[#0f3b42]">
+                View the open source core ↗
               </Link>
-            ))}
+            </p>
           </div>
         </section>
 
-        <section className="rounded-3xl border border-[#2c4c52] bg-[#0d1416]/50 px-6 py-5 text-center">
-          <div className="space-y-2">
-            <p className="text-sm font-semibold text-[#72e0e0]">Get Started</p>
-            <p className="text-sm text-slate-300">
-              Deploy the complete OpsOrch stack with Docker Compose or explore individual components.
-            </p>
+        <section className="rounded-3xl border border-[#2c4c52] bg-[#0d1416]/50 px-6 py-8 text-center">
+          <div className="space-y-3">
+            <p className="opsorch-tag">Next Step</p>
+            <h2 className="text-3xl font-semibold text-white">See how ops workflows look when they&apos;re first-class</h2>
             <div className="flex flex-wrap justify-center gap-3 pt-2">
+              <DemoCTA videoSrc={DEMO_URL} label="Watch the OpsOrch demo" />
               <Link
-                href="/docs/quick-start"
-                className="inline-flex items-center gap-1 rounded-lg border border-[#55cfd0] bg-[#10333a] px-3 py-1.5 text-xs font-medium text-white transition hover:bg-[#14454e]"
-              >
-                Quick Start Guide →
-              </Link>
-              <Link
-                href="https://github.com/OpsOrch"
+                href={GITHUB_ORG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 rounded-lg border border-[#2c4c52] bg-[#0d1416] px-3 py-1.5 text-xs font-medium text-slate-300 transition hover:bg-[#1a2b31]"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#55cfd0] bg-[#10333a] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#14454e]"
               >
-                Browse GitHub ↗
+                Browse the repo
+                <span aria-hidden>↗</span>
               </Link>
             </div>
           </div>

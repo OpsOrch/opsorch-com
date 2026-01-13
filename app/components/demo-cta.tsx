@@ -4,9 +4,10 @@ import { useCallback, useState } from "react";
 
 type DemoCTAProps = {
   videoSrc: string;
+  label: string;
 };
 
-export default function DemoCTA({ videoSrc }: DemoCTAProps) {
+export default function DemoCTA({ videoSrc, label }: DemoCTAProps) {
   const [isOpen, setIsOpen] = useState(false);
   const open = useCallback(() => setIsOpen(true), []);
   const close = useCallback(() => setIsOpen(false), []);
@@ -18,7 +19,7 @@ export default function DemoCTA({ videoSrc }: DemoCTAProps) {
         onClick={open}
         className="inline-flex items-center gap-2 rounded-2xl border border-transparent bg-[#72e0e0] px-5 py-3 text-sm font-semibold text-[#041217] shadow-lg transition hover:-translate-y-0.5 hover:bg-[#9af1f1]"
       >
-        Checkout Demo
+        {label}
         <span aria-hidden>↗</span>
       </button>
 
