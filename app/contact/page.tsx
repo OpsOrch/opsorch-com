@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     openGraph: {
         url: pageUrl,
         title: "Contact OpsOrch",
-        description: "Get in touch with OpsOrch for support, enterprise needs, or to contribute to the project.",
+        description: "Get in touch with OpsOrch for support, integrations, or to contribute to the project.",
     },
 };
 

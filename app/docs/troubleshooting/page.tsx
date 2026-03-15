@@ -93,8 +93,7 @@ export default function TroubleshootingPage() {
                         <div>
                             <h3 className="text-lg font-semibold text-white">Is OpsOrch Open Source?</h3>
                             <p className="text-slate-400 mt-2">
-                                Yes. OpsOrch Core, Console, and standard Adapters are Apache 2.0 licensed.
-                                The Copilot (AI) capabilities and certain Enterprise features (Audit Logs, SaaS hosting) are commercial.
+                                Yes. OpsOrch Core, Console, Copilot, MCP, and standard adapters are open source.
                             </p>
                         </div>
                         <div>

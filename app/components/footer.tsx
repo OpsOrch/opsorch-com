@@ -8,8 +8,8 @@ export default function Footer() {
             title: "Product",
             links: [
                 { label: "OpsOrch Core", href: "https://github.com/OpsOrch/opsorch-core" },
-                { label: "OpsOrch Console", href: "#" },
-                { label: "OpsOrch Copilot", href: "#" },
+                { label: "OpsOrch Console", href: "https://github.com/OpsOrch/opsorch-console" },
+                { label: "OpsOrch Copilot", href: "https://github.com/OpsOrch/opsorch-copilot" },
             ],
         },
         {
@@ -69,7 +69,7 @@ export default function Footer() {
 
                 <div className="mt-8 border-t border-white/10 pt-8">
                     <p className="text-center text-xs text-slate-500">
-                        © {currentYear} OpsOrch. All rights reserved.
+                        © {currentYear} OpsOrch. Licensed under Apache 2.0.
                     </p>
                 </div>
             </div>

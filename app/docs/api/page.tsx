@@ -86,7 +86,7 @@ export default function ApiPage() {
                                 <strong className="text-white">Service-to-Service (API Token)</strong>
                                 <p className="text-slate-400 mt-1">
                                     Use the <code className="text-xs bg-slate-800 p-1 rounded">X-OpsOrch-Token</code> header.
-                                    (Currently for Enterprise / specific internal use cases).
+                                    This is the standard option for service-to-service calls and automation.
                                 </p>
                             </div>
                         </li>
