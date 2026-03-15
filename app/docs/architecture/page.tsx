@@ -169,7 +169,7 @@ export default function ArchitecturePage() {
                             <li>• Advanced log & metric visualization</li>
                             <li>• Service catalog & dependency mapping</li>
                             <li>• Team management & organizational structure</li>
-                            <li>• AI-powered Copilot chat (Enterprise)</li>
+                            <li>• AI-powered Copilot chat</li>
                             <li>• Runbook execution & step tracking</li>
                         </ul>
                     </div>

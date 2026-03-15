@@ -147,7 +147,7 @@ export default function AboutPage() {
                     <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-start">
                         <div className="space-y-4">
                             <p className="opsorch-tag">Open Source</p>
-                            <SectionHeading>Open source and commercial model</SectionHeading>
+                            <SectionHeading>Open source model</SectionHeading>
                             <SectionText>OpsOrch is built in the open.</SectionText>
                             <SectionText>
                                 Core schemas, orchestration primitives, and adapter frameworks are open source and intended to be extended by
@@ -155,12 +155,12 @@ export default function AboutPage() {
                             </SectionText>
                         </div>
                         <div className="rounded-2xl border border-[#1f3c43] bg-[#0d1518] p-6">
-                            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">Commercial focus</p>
+                            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">Open components</p>
                             <div className="mt-4 space-y-3 text-slate-300">
                                 {[
-                                    "Governance and access controls",
-                                    "Copilot runtime and enterprise deployment",
-                                    "Operational safety features for larger teams",
+                                    "Console and Copilot",
+                                    "Core APIs and orchestration",
+                                    "Adapters and MCP integrations",
                                 ].map((item) => (
                                     <div key={item} className="rounded-xl border border-[#1f3c43] bg-[#0b1113] px-4 py-3">
                                         {item}

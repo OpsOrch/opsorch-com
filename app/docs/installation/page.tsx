@@ -62,7 +62,7 @@ export default function InstallationPage() {
             </li>
             <li className="flex gap-3">
               <span className="text-[#72e0e0]">•</span>
-              <span><strong>PostgreSQL (Optional):</strong> Required only if using persistent history features (Enterprise).</span>
+              <span><strong>PostgreSQL (Optional):</strong> Use it if you want external persistence for supporting services in your deployment.</span>
             </li>
           </ul>
         </section>
@@ -163,13 +163,15 @@ spec:
     spec:
       containers:
         - name: console
-          image: ghcr.io/opsorch/opsorch-console:latest-oss
+          image: ghcr.io/opsorch/opsorch-console:latest
           ports:
             - containerPort: 3000
           env:
             # URL to reach OpsOrch Core (ClusterIP service)
             - name: NEXT_PUBLIC_OPSORCH_CORE_URL
               value: "http://opsorch-core.opsorch.svc.cluster.local"
+            - name: NEXT_PUBLIC_COPILOT_URL
+              value: "http://opsorch-copilot.opsorch.svc.cluster.local"
 ---
 apiVersion: v1
 kind: Service

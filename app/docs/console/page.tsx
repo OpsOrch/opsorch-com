@@ -110,7 +110,7 @@ export default function ConsolePage() {
 
                         {/* Copilot */}
                         <div>
-                            <h3 className="text-lg font-semibold text-[#72e0e0]">Copilot (Enterprise)</h3>
+                            <h3 className="text-lg font-semibold text-[#72e0e0]">Copilot</h3>
                             <p className="text-sm text-slate-300 mt-1 mb-2">
                                 AI assistant always available in the right-hand drawer or via <kbd className="rounded border border-slate-600 bg-slate-800 px-1 text-xs">Cmd+K</kbd>.
                             </p>

@@ -7,20 +7,20 @@ import type { Metadata } from "next";
 const pageUrl = "https://opsorch.com/license";
 
 export const metadata: Metadata = {
-    title: "OpsOrch Enterprise License",
-    description: "Review the enterprise license terms that govern commercial use of the OpsOrch platform.",
+    title: "OpsOrch License",
+    description: "Review the open-source license for the OpsOrch website and project materials.",
     alternates: {
         canonical: pageUrl,
     },
     openGraph: {
         url: pageUrl,
-        title: "OpsOrch Enterprise License",
-        description: "Read the enterprise terms for deploying OpsOrch in regulated or commercial environments.",
+        title: "OpsOrch License",
+        description: "Read the open-source license for OpsOrch.",
     },
 };
 
 export default async function LicensePage() {
-    const licensePath = path.join(process.cwd(), "LICENSE-ENTERPRISE");
+    const licensePath = path.join(process.cwd(), "LICENSE");
     let licenseContent = "";
 
     try {
@@ -42,8 +42,8 @@ export default async function LicensePage() {
                         "@graph": [
                             {
                                 "@type": "WebPage",
-                                name: "OpsOrch Enterprise License",
-                                description: "Review the OpsOrch license text for enterprise deployments.",
+                                name: "OpsOrch License",
+                                description: "Review the OpsOrch open-source license text.",
                                 url: pageUrl,
                             },
                             {
@@ -58,7 +58,7 @@ export default async function LicensePage() {
                                     {
                                         "@type": "ListItem",
                                         position: 2,
-                                        name: "Enterprise License",
+                                        name: "License",
                                         item: pageUrl,
                                     },
                                 ],
@@ -83,7 +83,7 @@ export default async function LicensePage() {
                             OpsOrch
                         </Link>
                     </div>
-                    <h1 className="text-3xl font-semibold text-white">Enterprise License</h1>
+                    <h1 className="text-3xl font-semibold text-white">License</h1>
                 </header>
 
                 <main className="opsorch-card border-[#1f3c43] bg-[#0f1c20] p-6 sm:p-8">
@@ -93,7 +93,7 @@ export default async function LicensePage() {
                 </main>
 
                 <footer className="text-center text-xs text-slate-400">
-                    © {currentYear} OpsOrch. All rights reserved.
+                    © {currentYear} OpsOrch. Licensed under Apache 2.0.
                 </footer>
             </div>
         </div>

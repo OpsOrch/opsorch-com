@@ -116,10 +116,9 @@ export default function Home() {
             <p className="opsorch-tag text-[#3d8f92]">Open</p>
             <h2 className="text-3xl font-semibold text-slate-900">Open by default</h2>
             <p className="text-base text-slate-700">
-              OpsOrch is built in the open. Core schemas and orchestration are open source. Enterprise features add governance, Copilot
-              runtime, and controls for larger teams.{" "}
+              OpsOrch is built in the open. Core APIs, adapters, Console, MCP, and Copilot are open source.{" "}
               <Link href={GITHUB_ORG_URL} target="_blank" rel="noopener noreferrer" className="opsorch-link text-[#0f3b42]">
-                View the open source core ↗
+                Browse the repos ↗
               </Link>
             </p>
           </div>
