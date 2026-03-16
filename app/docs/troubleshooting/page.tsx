@@ -83,7 +83,7 @@ export default function TroubleshootingPage() {
                         Adapters report health status to the Core. You can query this via the health endpoint.
                     </p>
                     <div className="mt-4">
-                        <CodeBlock language="bash">curl http://localhost:8080/health</CodeBlock>
+                        <CodeBlock language="bash">curl http://localhost:8080/health -H &apos;Authorization: Bearer demo&apos;</CodeBlock>
                     </div>
                 </section>
 

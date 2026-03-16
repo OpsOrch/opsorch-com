@@ -282,6 +282,11 @@ ENV OPSORCH_TICKET_PLUGIN=/opt/opsorch/plugins/ticketplugin \\
               </thead>
               <tbody className="divide-y divide-slate-800">
                 <tr>
+                  <td className="px-3 py-2 font-mono">OPSORCH_BEARER_TOKEN</td>
+                  <td className="px-3 py-2">Core</td>
+                  <td className="px-3 py-2">Bearer token required for all API requests</td>
+                </tr>
+                <tr>
                   <td className="px-3 py-2 font-mono">PORT</td>
                   <td className="px-3 py-2">Core</td>
                   <td className="px-3 py-2">Port to listen on (default: 8080)</td>

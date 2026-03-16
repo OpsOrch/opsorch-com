@@ -130,21 +130,33 @@ export default function AdaptersPage() {
                             className="rounded-xl border border-[#1f3c43] bg-[#0d1416]/50 p-5 transition hover:-translate-y-1 hover:border-[#55cfd0]"
                         >
                             <h3 className="text-lg font-semibold text-white">GitHub</h3>
-                            <p className="mt-1 text-xs text-[#72e0e0]">Teams</p>
+                            <p className="mt-1 text-xs text-[#72e0e0]">Ticket, Deployment, Team</p>
                             <div className="mt-3 text-xs text-slate-400">
-                                <strong>Scopes:</strong> <code>read:org</code>
+                                <strong>Scopes:</strong> <code>repo</code>, <code>read:org</code>
                             </div>
                         </Link>
                         <Link
-                            href="https://github.com/OpsOrch/opsorch-vault-adapter"
+                            href="https://github.com/OpsOrch/opsorch-argo-adapter"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="rounded-xl border border-[#1f3c43] bg-[#0d1416]/50 p-5 transition hover:-translate-y-1 hover:border-[#55cfd0]"
                         >
-                            <h3 className="text-lg font-semibold text-white">Vault</h3>
-                            <p className="mt-1 text-xs text-[#72e0e0]">Secrets</p>
+                            <h3 className="text-lg font-semibold text-white">Argo CD</h3>
+                            <p className="mt-1 text-xs text-[#72e0e0]">Deployment</p>
                             <div className="mt-3 text-xs text-slate-400">
-                                <strong>Role:</strong> Read-only to specific secrets mount
+                                <strong>Auth:</strong> API token or username/password
+                            </div>
+                        </Link>
+                        <Link
+                            href="https://github.com/OpsOrch/opsorch-orchestration-adapter"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-xl border border-[#1f3c43] bg-[#0d1416]/50 p-5 transition hover:-translate-y-1 hover:border-[#55cfd0]"
+                        >
+                            <h3 className="text-lg font-semibold text-white">Orchestration</h3>
+                            <p className="mt-1 text-xs text-[#72e0e0]">Orchestration</p>
+                            <div className="mt-3 text-xs text-slate-400">
+                                <strong>Backend:</strong> YAML runbooks + SQLite state
                             </div>
                         </Link>
                     </div>
@@ -178,6 +190,16 @@ export default function AdaptersPage() {
                                     <td className="px-3 py-2">Ticket</td>
                                     <td className="px-3 py-2">OPSORCH_TICKET_CONFIG</td>
                                     <td className="px-3 py-2"><code className="text-xs">{`{"apiToken":"...","email":"..."}`}</code></td>
+                                </tr>
+                                <tr>
+                                    <td className="px-3 py-2">Deployment (Argo CD)</td>
+                                    <td className="px-3 py-2">OPSORCH_DEPLOYMENT_CONFIG</td>
+                                    <td className="px-3 py-2"><code className="text-xs">{`{"server":"https://argocd.example.com","authMethod":"token","token":"..."}`}</code></td>
+                                </tr>
+                                <tr>
+                                    <td className="px-3 py-2">Orchestration</td>
+                                    <td className="px-3 py-2">OPSORCH_ORCHESTRATION_CONFIG</td>
+                                    <td className="px-3 py-2"><code className="text-xs">{`{"storagePath":"/opt/opsorch/data"}`}</code></td>
                                 </tr>
                             </tbody>
                         </table>

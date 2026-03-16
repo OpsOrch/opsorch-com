@@ -104,7 +104,7 @@ export default function QuickStartGuidePage() {
                             {
                                 "@type": "HowToStep",
                                 name: "Start the OpsOrch stack",
-                                text: "Clone the repository and start the local stack with mock adapters"
+                                text: "Download the docker-compose file and start the local stack with mock adapters using DOCKER_DEFAULT_PLATFORM=linux/amd64"
                             },
                             {
                                 "@type": "HowToStep",
@@ -217,7 +217,7 @@ export default function QuickStartGuidePage() {
                     <div className="space-y-4">
                         <CodeBlock>
                             {`curl -O https://raw.githubusercontent.com/OpsOrch/.github/main/profile/docker-compose.yml
-docker compose up -d`}
+DOCKER_DEFAULT_PLATFORM=linux/amd64 docker compose up -d`}
                         </CodeBlock>
                     </div>
 
@@ -226,12 +226,29 @@ docker compose up -d`}
                         <ul className="space-y-1 text-slate-300">
                             <li>• OpsOrch Core (control plane)</li>
                             <li>• OpsOrch MCP server</li>
+                            <li>• OpsOrch Copilot (AI runtime)</li>
                             <li>• OpsOrch Console</li>
                             <li>• Mock providers for incidents, metrics, logs, tickets, and services</li>
                         </ul>
                         <p className="mt-4 text-sm text-slate-400">
                             Wait until all containers are healthy.
                         </p>
+                    </div>
+
+                    <div className="mt-6 rounded-lg border border-slate-700 bg-slate-900/50 p-4">
+                        <h4 className="font-semibold text-white mb-3">Verify the stack is up:</h4>
+                        <CodeBlock>
+                            {`# Core health
+curl http://localhost:8080/health -H 'Authorization: Bearer demo'
+
+# MCP tools
+curl http://localhost:7070/mcp \\
+  -H 'Content-Type: application/json' \\
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+
+# Copilot health
+curl http://localhost:6060/health`}
+                        </CodeBlock>
                     </div>
                 </section>
 
@@ -406,7 +423,9 @@ docker compose up -d`}
                             "Explore how actions require explicit execution",
                             "Inspect the MCP tools exposed by OpsOrch",
                             "Replace a mock adapter with a real provider",
-                            "Connect an AI agent via MCP"
+                            "Connect an AI agent via MCP",
+                            "Try the dev stack with Copilot enabled (docker-compose.dev.yml)",
+                            "Visit /settings in the Console to verify endpoints"
                         ].map((item) => (
                             <div key={item} className="rounded-lg border border-slate-600 bg-slate-800/30 p-4">
                                 <span className="text-slate-300">{item}</span>
