@@ -15,6 +15,7 @@ export default function Footer() {
         {
             title: "Resources",
             links: [
+                { label: "Blog", href: "/blog" },
                 { label: "Documentation", href: "/docs" },
                 { label: "GitHub", href: "https://github.com/OpsOrch" },
                 { label: "License", href: "/license" },

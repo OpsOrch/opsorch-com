@@ -4,6 +4,7 @@ import DemoCTA from "./components/demo-cta";
 
 const GITHUB_ORG_URL = "https://github.com/OpsOrch";
 const DEMO_URL = "/opsorch-demo.mp4";
+const BLOG_POST_HREF = "/blog/operations-are-fragmented";
 
 export default function Home() {
   return (
@@ -121,6 +122,34 @@ export default function Home() {
                 Browse the repos ↗
               </Link>
             </p>
+          </div>
+        </section>
+
+        <section className="opsorch-card border-[#2c4c52] p-8">
+          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div className="max-w-3xl space-y-4">
+              <p className="opsorch-tag">From The Blog</p>
+              <h2 className="text-3xl font-semibold text-white">Operations Are Fragmented</h2>
+              <p className="text-base leading-7 text-slate-300">
+                An alert fires in Datadog. Investigation moves to Grafana. Decisions happen in Slack. The rollback runs through Argo.
+                Follow-up lands in Jira. Every tool works. The process between them does not.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3 lg:justify-end">
+              <Link
+                href={BLOG_POST_HREF}
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#55cfd0] bg-[#10333a] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#14454e]"
+              >
+                Read the post
+                <span aria-hidden>→</span>
+              </Link>
+              <Link
+                href="/blog"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#2c4c52] px-5 py-3 text-sm font-semibold text-slate-200 transition hover:border-[#55cfd0] hover:text-white"
+              >
+                Browse blog
+              </Link>
+            </div>
           </div>
         </section>
 
